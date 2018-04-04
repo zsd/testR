@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mock>
+    <unit name="市信息中心">
+        <post id="2473"
+              name="主任助理"
+              account="hzq"
+              username="黄章群"
+              department="行政部" />
+    </unit>
+
+    <unit name="美兰区博爱街道办">
+        <post id="11505"
+              name="工委副书记"
+              account="zhengzf"
+              username="郑之福"
+              department="博爱街道办事处" />
+    </unit>
+
+    <unit name="秀英区海秀街道办">
+        <post id="10904"
+              name="科员"
+              account="liuping0"
+              username="刘萍"
+              department="海秀街道办事处" />
+    </unit>
+
+    <unit name="龙华区委综治办">
+        <post id="60305"
+              name="副主任"
+              account="yuansl"
+              username="袁绍利"
+              department="办公室" />
+    </unit>
+
+    <unit name="龙华区中山街道办">
+        <post id="227"
+              name="科员"
+              account="zsgy"
+              username="中山公文员"
+              department="中山路街道办事处" />
+    </unit>
+
+    <unit name="玉河居委会">
+        <post id="58279"
+              name="1号网格员"
+              account="liangbt"
+              username="梁宝婷"
+              department="网格员" />
+    </unit>
+
+    <unit name="市综治办">
+        <post id="20018"
+              name="科员"
+              account="dx"
+              username="董潇"
+              department="办公室" />
+    </unit>
+
+    <unit name="美兰区委综治办">
+        <post id="3080"
+              name="主任"
+              account="wsheng"
+              username="王盛"
+              department="单位领导" />
+
+        <post id="82371"
+              name="副主任"
+              account="chenjianhui"
+              username="陈剑辉"
+              department="单位领导" />
+    </unit>
+
+    <unit name="博爱街道综治办">
+        <post id="66513"
+              name="副主任"
+              account="wangyongg"
+              username="王永根"
+              department="单位领导" />
+    </unit>
+
+    <unit name="万福居委会">
+        <post id="46647"
+              name="副主任"
+              account="wuli2"
+              username="吴丽"
+              department="单位领导" />
+
+        <post id="46957"
+              name="委员"
+              account="fengqz"
+              username="冯庆忠"
+              department="办公室" />
+
+        <post id="46967"
+              name="劳动监察协管"
+              account="chenwz"
+              username="陈为芷"
+              department="办公室" />
+
+        <post id="46647"
+              name="书记、主任"
+              account="liucaix"
+              username="刘彩霞"
+              department="单位领导" />
+
+        <post id="52569"
+              name="23号网格"
+              account="nx"
+              username="宁鑫"
+              department="网格员" />
+    </unit>
+
+
+    <unit name="美兰区人民路街道办">
+        <post id="11919"
+              name="副主任"
+              account="zhengsy"
+              username="郑世燕"
+              department="单位领导" />
+
+        <post id="47181"
+              name="副主任"
+              account="linguang1"
+              username="林光"
+              department="单位领导" />
+
+        <post id="11980"
+              name="副书记"
+              account="liaozz"
+              username="廖正志"
+              department="单位领导" />
+
+        <post id="11913"
+              name="办事员"
+              account="zhengyunx"
+              username="郑云霞"
+              department="办公室" />
+
+        <post id="43355"
+              name="社保站事业编人员"
+              account="zhengyunx"
+              username="郑云霞"
+              department="捕捞居委会" />
+
+        <post id="42235"
+              name="科员"
+              account="yld"
+              username="颜礼东"
+              department="办公室" />
+    </unit>
+
+    <unit name="秀英区委办">
+        <post id="6907"
+              name="区委机要局局长"
+              account="lijianwu"
+              username="李建武"
+              department="办公室" />
+    </unit>
+</mock>

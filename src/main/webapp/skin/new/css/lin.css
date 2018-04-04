@@ -1,0 +1,131 @@
+﻿/*
+以下林家民
+******************************************************************************/
+/*----以下自加公用样式----*/
+.L_bule{ color:#09F;}
+.L_selectbox{ display:inline; float:left; height:20px; line-height:20px; padding-right:10px; position:absolutet; top:0;}
+.L_selectbox .sel_tit,.sel_tit:hover{ color:#FFF;}
+.L_selectbox .ico_sx{ position:absolute; right:0px; top:8px;}
+.L_selectbox .L_selectsub{ background:#FFFFFF; border:1px solid #DDDDDD; bottom:22px; display:inline; float:left; left:0; position:absolute; width:60px; z-index:1;}
+.L_selectbox .L_selectsub .a{ color:#555; display:block; line-height:27px; padding-left:10px;}
+.L_selectbox .L_selectsub .a:hover{ background:#F6F6F6; color:#555;}
+
+.L_selectbox1{ display:inline; float:left; height:24px; line-height:24px; padding-right:20px; position:absolutet; top:0;}
+.L_selectbox1 .sel_btxt{ background:#FFF; border:#ccc 1px solid; display:inline; cursor:pointer; float:left; height:24px; _height:26px; line-height:26px; padding:0px 10px;}
+.L_selectbox1 .ico_sx1{ position:absolute; right:0px; top:0;}
+.L_selectbox1 .L_selectsub1{ background:#FFFFFF; border:1px solid #DDDDDD; top:26px; display:inline; float:left; left:0; position:absolute; width:60px; z-index:1;}
+.L_selectbox1 .L_selectsub1 .a{ color:#555; display:block; line-height:27px; padding-left:10px;}
+.L_selectbox1 .L_selectsub1 .a:hover{ background:#F6F6F6; color:#555;}
+
+.L_prtml{ margin-left:10px; position:absolute; top:6px;}
+.Pricon_box{ height:15px; position:absolute; right:50px; top:5px;}
+.Pricon_box dl{ display:inline; float:left; position:relative; top:-6px; right:6px;}
+.Pricon_box dl dd{ display:inline; float:left;}
+/*----以上自加公用样式----*/
+/*----以下收文-------*/
+.L_recover li{ height:24px; line-height:24px;}
+/*----以下公文编号列表弹窗----*/
+.bh_box{ display:inline; float:left; height:20px; margin:2px 10px 0;}
+.bh_box .bn_txt{ border:1px solid #ccc; height:18px; line-height:20px; text-align:center; width:24px;}
+.bh_box .bn_txt,.bh_box .L_btn,.bh_box .R_btn{ display:inline; float:left;}
+.L_popup_box{ background:#FFF; border:1px solid #ccc; height:110px; overflow-y:scroll; position:absolute; top:20px; width:350px;}
+.L_popup_box .bh_tit{ background:#eee; border-bottom:1px solid #ddd; height:30px; line-height:30px; width:100%;}
+.L_popup_box .bh_tit .w10p,.L_popup_box .bh_tit .w20p,.L_popup_box .bh_tit .w70p{ display:inline; float:left; height:30px; line-height:30px; text-indent:10px; overflow:hidden;}
+.L_popup_box .bh_li{}
+.L_popup_box .bh_li .w10p,.L_popup_box .bh_li .w20p,.L_popup_box .bh_li .w70p{ display:inline; float:left; height:24px; line-height:24px; text-indent:10px;}
+.L_popup_box .bh_tit .w10p,.L_popup_box .bh_li .w10p{ width:20%;}
+.L_popup_box .bh_tit .w20p,.L_popup_box .bh_li .w20p{ width:25%;}
+.L_popup_box .bh_tit .w70p,.L_popup_box .bh_li .w70p{ width:55%;}
+/*----以下待办公文列表----*/
+.tipsb_lb{ background:#FFFFE5; border:1px solid #FFCC7F; left:-50%; margin-left:20px; padding:0 6px; position:absolute; top:-24px;}
+/*----以下导出弹窗----*/
+.gd_paItem_dc .prt{ display:inline; float:left; margin-top:3px; margin-right:3px;}
+/*----以下催办单----*/
+.cbd_gzhSelect { position:absolute; width:110px; top:auto; bottom:0; left:0; height:140px; border:1px solid #ccc; overflow:hidden; background:#fff; z-index:2; padding-right:220px; overflow:hidden; box-shadow:0 0 2px #ccc;}
+.cbd_gzhpTit{ text-align:center;}
+.gw_cachet{ text-indent:inherit;}
+/*----以下打印预览弹窗----*/
+.tb_box_dy{ background:#FFF; height:800px; margin:auto; padding:10px; width:665px;}
+.tb_dy{ border:1px solid #000; border-spacing:0; border-collapse:collapse; width:665px;}
+.tb_dy th,.tb_dy td{ border:1px solid #000; height:30px; vertical-align:middle; text-indent:10px;}
+.tb_dy th{ background:#CCC; text-align:center;}
+.tool_box_dy{ height:134px; position:absolute; top:0; right:-55px; width:55px;}
+.tool_box_dy .btn_reduce,.tool_box_dy .btn_restore,.tool_box_dy .btn_print,.tool_box_dy .btn_exit{ background:url(../images/icon.png) no-repeat; display:block; height:33px; text-indent:-9999px; width:55px;}
+.tool_box_dy .btn_reduce{ background-position:-1168px -240px; height:35px;}
+.tool_box_dy .btn_restore{ background-position:-1168px -275px;}
+.tool_box_dy .btn_print{ background-position:-1168px -308px;}
+.tool_box_dy .btn_exit{ background-position:-1168px -341px;}
+
+/*----以下来文单位呈批表选项卡----*/
+.tb_cf{ margin:auto; border-spacing:0; border-collapse:collapse;}
+.tb_cf thead th{ background:none; border:none; font-size:36px; height:72px; line-height:72px; vertical-align:middle; text-align:center;}
+.tb_cf tbody{ border:2px solid #000;}
+.tb_cf tbody th,.tb_cf tbody td{ border:1px solid #000; padding:0 10px; vertical-align:middle;}
+.tb_cf tbody th{ background:#eee; text-align:center;}
+.tb_cf .prt{ position:relative; top:2px;}
+
+/*----以下草稿箱----*/
+.L_save_tips{ background:#64C600; color:#FFF; height:24px; line-height:24px; padding:0 10px; position:absolute; left:50%; z-index:9999;}
+.tb_bcolor td{ border:2px solid #71C4E6;}
+.tb_bcolor td.brn{ border-right:1px solid #ddd;}
+.tb_bcolor td.bln{ border-left:1px solid #ddd;}
+/*----以下公文呈批表退文、草稿箱---*/
+.err_li{ height:24px; line-height:24px;}
+.err_li .L_icon_t{ display:inline; float:left; margin:3px 3px 0 0;}
+.err_li .L_icon_t{ display:inline; float:left; margin:3px 3px 0 0;}
+.err_li .L_cr{ color:#E38800;}
+.info_bm{ height:30px; line-height:30px;}
+.info_bm .mr_sn{ margin-right:10px;}
+/*----以下联合发文呈批表---*/
+.L_lh_box{ border:1px solid #CCC; min-height:100px; _height:172px; padding-left:150px;}
+.L_lh_box .L_lh_boxl{ background:#F4FCFE; display:inline; float:left; border-right:1px solid #CCC; height:100%; left:0; position:absolute; top:0; width:150px;}
+.L_lh_box .L_lh_boxl .pr_box{ margin-top:-14px; top:50%;}
+.L_lh_box .L_lh_boxl .icon248{ left:0; position:absolute; top:0;}
+.L_lh_box .yjkfloatset{ margin:0;}
+.L_yb,.L_wb{ background:#64C600; display:inline; float:left; height:16px; margin:5px 3px 0 0; overflow:hidden; text-indent:-9999px; width:16px;}
+.L_wb{ background:#CCC;}
+
+.gw_box{ width:100%; height:100%;float:left; display:inline;}
+.tab_gw{width:100%; height:30px;border-bottom:#CCC 1px solid; float:left;display:inline;}
+.tab_gw .Spanfr{float:right; display:inline;}
+.tab_gw a{ height:25px;line-height:25px;padding:0px 15px 0px 15px; margin-left:10px; margin-top:4px;border:#CCC 1px solid; border-bottom:none;text-align:center; color:#27AFE9;cursor:pointer; background:#F5F4F0;float:left; display:inline;}
+.tab_gw a:hover,.tab_gw a:active{background:#ffffff; color:#ff6600;}
+
+.gw_zm{ background:#FFF; display:inline; float:left; height:100%; line-height:30px; padding-top:15px; width:100%;}
+.gw_zm_li{ background:#FFF; display:inline; float:left; height:30px; padding:0 15px;}
+.gw_zm_li a{ display:inline; float:left; height:25px; line-height:25px; margin-right:10px; padding:0 10px; position:relative;}
+.gw_zm_li a .icon245{ display:none;}
+.gw_zm_li a.cur,.gw_zm_li a:hover{ background:#27AFE9; color:#FFF;}
+.gw_zm_li a.cur .icon245,.gw_zm_li a:hover .icon245{ display:block; position:absolute; left:50%; bottom:-5px; _bottom:-6px; margin-left:-3px;}
+
+.cur_BTxt,.cur_BTxt .cur_t{ font-size:24px; font-weight:bold;}
+.cur_BTxt{ color:#666; padding:15px 0 5px; text-align:center;}
+.cur_BTxt .cur_t{ color:#27AFE9; margin-right:10px;}
+
+.lb_gw{ width:auto; height:100%; float:left; display:inline; padding:10px; background:#FFF;}
+.lb_gw_c{ width:100%;height:100%;float:left;display:inline;}
+.lb_gw_blue{ width:100%;float:left;display:inline;}
+.lb_gw_btag{ width:100%;height:100%;float:left;display:inline;}
+.lb_gw_btag a{height:25px; line-height:25px; margin-left:5px;margin-top:5px; text-align:center;white-space:nowrap; padding:0px 8px 0px 8px;float:left; display:inline;}
+.lb_gw_btag a i{ color:#999; font-style:normal;}
+.lb_gw_blue a.lb_gw_bfon{height:25px; line-height:25px; white-space:nowrap;background:#27AFE9;color:#fff;float:left; display:inline;cursor:pointer;}
+.lb_gw_blue a.lb_gw_bfon i,.lb_gw_blue a:hover i{ color:#FFF;}
+.lb_gw_blue a:hover{height:25px; line-height:25px; white-space:nowrap;background:#27AFE9; color:#fff;}
+
+/*----以下快捷标签---*/
+.sz_date_ts{ color:#333; display:inline; font-size:12px; float:left; height:26px; line-height:26px; margin-left:10px;}
+.sz_date_ts .ylHangTip{ top:28px; width:74px;}
+.sz_date_ts .ylHangTip b{ right:28px;}
+.sz_date_ts .ylHangTip dl{ margin:0 10px;}
+.sz_date_ts .ylHangTip dd{ text-align:center;}
+
+/*----以上强制控制原有样式---*/
+/******************************************************************************
+以上林家民
+*/
+
+
+
+
+
+
