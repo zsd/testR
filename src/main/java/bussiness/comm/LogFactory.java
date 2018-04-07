@@ -7,9 +7,7 @@ import com.vansec.comm.domain.EntityImpl;
 import com.vansec.comm.domain.Module;
 import com.vansec.location.domain.Gps;
 import com.vansec.log.domain.Log;
-import com.vansec.log.service.LogService;
-import com.vansec.org.domain.Post;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.vansec.user.domain.User;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -32,7 +30,7 @@ public final class LogFactory {
         //添加系统日记
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String ip = ServletContextHolder.getRequest().getRemoteAddr();
-        Post post = SecurityContextHolder.getPost();
+        User post = SecurityContextHolder.getUser();
         Module module = new Module();
         module.setName(moduleName);
         Client client = new Client();

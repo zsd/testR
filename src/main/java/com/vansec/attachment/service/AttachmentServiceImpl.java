@@ -5,7 +5,7 @@ import com.vansec.attachment.domain.Attachment;
 import com.vansec.comm.domain.Entity;
 import com.vansec.comm.hdfs.FileService;
 import com.vansec.comm.orm.Page;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.lucene.store.Directory;
 import org.slf4j.Logger;
@@ -138,18 +138,18 @@ public class AttachmentServiceImpl implements AttachmentService {
     }
 
     @Override
-    public void insert(Attachment attachment, Post post) {
-        dao.insert(attachment, post);
+    public void insert(Attachment attachment, User user) {
+        dao.insert(attachment, user);
     }
 
     @Override
-    public void update(Attachment attachment, Post post) {
-        dao.update(attachment, post);
+    public void update(Attachment attachment, User user) {
+        dao.update(attachment, user);
     }
 
     @Override
-    public void updateNewName(String id, String newName, Post post) {
-        dao.updateNewName(id, newName, post);
+    public void updateNewName(String id, String newName, User user) {
+        dao.updateNewName(id, newName, user);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.vansec.attachment.dao.mapper;
 
 import com.vansec.attachment.domain.Attachment;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -20,17 +20,17 @@ public interface AttachmentMapper {
      * 插入附件
      *
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    void insert(@Param("attachment") Attachment attachment, @Param("post") Post post);
+    void insert(@Param("attachment") Attachment attachment, @Param("user") User user);
 
     /**
      * 更新附件
      *
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    void update(@Param("attachment") Attachment attachment, @Param("post") Post post);
+    void update(@Param("attachment") Attachment attachment, @Param("user") User user);
 
     /**
      * 更新附件新名称
@@ -39,7 +39,8 @@ public interface AttachmentMapper {
      * @param newName    新名称
      * @param updateTime 更新时间
      */
-    void updateNewName(@Param("id") String id, @Param("newName") String newName, @Param("post") Post post, @Param("updateTime") Date updateTime);
+    void updateNewName(@Param("id") String id, @Param("newName") String newName, @Param("user") User user,
+                       @Param("updateTime") Date updateTime);
 
     /**
      * 删除附件
@@ -63,19 +64,17 @@ public interface AttachmentMapper {
     List<Attachment> finds(@Param("id") String entityId);
 
     /**
-     * 根据业务对象ID和业务类型获取附件列表
-     * @param objectId
-     * @param type
-     * @return
+     * 根据业务对象ID和业务类型获取附件列表.
      */
     List<Attachment> getList(@Param("objectId") String objectId, @Param("type") int type);
 
     /**
-     * 根据条件获取附件分页列表
-     * @param param
-     * @return
+     * 根据条件获取附件分页列表.
      */
     List<Attachment> search(Map<String, Object> param);
 
+    /**
+     * 分页列表数据量.
+     */
     long count(Map<String, Object> param);
 }

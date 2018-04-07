@@ -3,7 +3,6 @@ package com.vansec.example.domain;
 import bussiness.comm.ObjectTypeFactory;
 import com.vansec.comm.domain.EntityImpl;
 import com.vansec.comm.domain.ObjectType;
-import com.vansec.flow.domain.TaskObject;
 
 import java.io.Serializable;
 
@@ -11,7 +10,7 @@ import java.io.Serializable;
  * 框架使用例子, 实体.
  * @author zhousd
  */
-public class Example extends TaskObject {
+public class Example extends EntityImpl {
 
     private String gender; //性别
 
@@ -20,7 +19,6 @@ public class Example extends TaskObject {
     */
     public Example() {
         super();
-        this.setObjType(ObjectTypeFactory.getObjectType(ObjectTypeFactory.ID_EXAMPLE));
     }
 
     /**

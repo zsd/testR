@@ -1,6 +1,6 @@
 package com.vansec.frontset.service;
 
-import com.vansec.org.domain.User;
+import com.vansec.user.domain.User;
 
 /**
  * 用户服务接口.

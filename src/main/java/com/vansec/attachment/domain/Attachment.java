@@ -1,9 +1,7 @@
 package com.vansec.attachment.domain;
 
 import com.vansec.comm.domain.EntityImpl;
-import com.vansec.org.domain.Post;
-
-import java.util.Date;
+import com.vansec.user.domain.User;
 
 /**
  * @author xierh
@@ -44,7 +42,7 @@ public class Attachment extends EntityImpl {
     /**
      * 创建者
      */
-    private Post creator;
+    private User creator;
 
     private AttachRelation attachRelation;//附件关联
 
@@ -96,19 +94,19 @@ public class Attachment extends EntityImpl {
         this.fileSize = fileSize;
     }
 
-    public Post getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Post creator) {
-        this.creator = creator;
-    }
-
     public AttachRelation getAttachRelation() {
         return attachRelation;
     }
 
     public void setAttachRelation(AttachRelation attachRelation) {
         this.attachRelation = attachRelation;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 }

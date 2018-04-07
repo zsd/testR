@@ -6,7 +6,7 @@ import com.vansec.authority.domain.Role;
 import com.vansec.comm.exception.ServiceException;
 import com.vansec.comm.orm.Page;
 import com.vansec.comm.utils.Identities;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -82,14 +82,16 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void saveOrgRole(Post post) {
-        if (post == null) {
-            return;
-        }
-        roleDao.deleteByOrg(post.getId());
-        for (Role role : post.getRoleList()) {
-            roleDao.saveOrgRole(post.getId(), post.getType(), role.getId());
-        }
+    public void saveOrgRole(User user) {
+//        if (post == null) {
+//            return;
+//        }
+//        roleDao.deleteByOrg(user.getId());
+//        for (Role role : user.getRoleList()) {
+//            roleDao.saveOrgRole(user.getId(), post.getType(), role.getId());
+//        }
+
+        // todo
     }
 
     @Override

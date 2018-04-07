@@ -4,7 +4,7 @@ import com.vansec.comm.domain.Client;
 import com.vansec.comm.domain.EntityImpl;
 import com.vansec.comm.domain.Module;
 import com.vansec.location.domain.Gps;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 
 /**
  * 业务日志实体类.
@@ -12,13 +12,16 @@ import com.vansec.org.domain.Post;
  */
 public class Log extends EntityImpl {
 
-    // 业务日志类型 1：添加 2：删除 3：修改 4：查询 5：查看，6:详细信息（可以自定义更多操作类型，通用操作依次添加，与业务模块相关的添加业务模块序号前缀）
+    /**
+     * 业务日志类型 1：添加 2：删除 3：修改 4：查询 5：查看，6:详细信息
+     * （可以自定义更多操作类型，通用操作依次添加，与业务模块相关的添加业务模块序号前缀）
+     */
     private int type;
     private String description; // 日志操作描述
     private String ip; // 登陆人IP
     private Module module; // 模块
     private EntityImpl obj; // 操作业务实体
-    private Post post; // 操作人岗位
+    private User user; // 操作人岗位
     private Gps gps; // GPS实体
     private Client client; // 客户端
 
@@ -34,7 +37,7 @@ public class Log extends EntityImpl {
         super();
     }
 
-    public Log(int type, String description, String ip, Module module, EntityImpl obj, Post post, Gps gps,
+    public Log(int type, String description, String ip, Module module, EntityImpl obj, User user, Gps gps,
                Client client) {
         this();
         this.type = type;
@@ -42,7 +45,7 @@ public class Log extends EntityImpl {
         this.ip = ip;
         this.module = module;
         this.obj = obj;
-        this.post = post;
+        this.user = user;
         this.gps = gps;
         this.client = client;
     }
@@ -95,19 +98,19 @@ public class Log extends EntityImpl {
         this.module = module;
     }
 
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
     public Gps getGps() {
         return gps;
     }
 
     public void setGps(Gps gps) {
         this.gps = gps;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

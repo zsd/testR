@@ -8,8 +8,7 @@ import com.vansec.example.service.ExampleService;
 import com.vansec.frontset.service.LoginService;
 import com.vansec.function.domain.Function;
 import com.vansec.function.service.FunctionService;
-import com.vansec.org.domain.Post;
-import com.vansec.org.domain.User;
+import com.vansec.user.domain.User;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +45,8 @@ public class LoginController {
      */
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String loginPage() {
-        Post post = SecurityContextHolder.getPost();
-        if (ObjectUtils.notEqual(post, null)) {
+        User user = SecurityContextHolder.getUser();
+        if (ObjectUtils.notEqual(user, null)) {
             return "redirect:/index";
         }
         return "frontset/login";
@@ -59,8 +58,8 @@ public class LoginController {
     @RequestMapping(value = "index")
     public String index(Model model, String loginName,String password) {
 
-        Post post = SecurityContextHolder.getPost();
-        if (ObjectUtils.equals(post, null)) {
+        User user = SecurityContextHolder.getUser();
+        if (ObjectUtils.equals(user, null)) {
             if (StringUtils.isBlank(loginName) && StringUtils.isBlank(password)) {
                 return "redirect:/login";
             }
@@ -72,9 +71,9 @@ public class LoginController {
             }
         }
 
-        post = SecurityContextHolder.getPost();
+        user = SecurityContextHolder.getUser();
         StringBuffer result = new StringBuffer("");
-        List<Function> list = functionService.getByPostId(post.getId(),"root");
+        List<Function> list = functionService.getByUserId(user.getId(),"root");
 
         Map<String, String >  map = new HashMap<>() ;
 
@@ -107,7 +106,7 @@ public class LoginController {
         }
         model.addAttribute("bannerMenu",result);
         if(list.size() > 0){
-            Map<String, Object > map2 =  functionService.getMapByPostId(post.getId(),list);
+            Map<String, Object > map2 =  functionService.getMapByUserId(user.getId(),list);
             model.addAttribute("menus",jsonMapper.toJson(map2));
         }
 

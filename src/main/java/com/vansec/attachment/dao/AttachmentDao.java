@@ -5,7 +5,7 @@ import com.vansec.attachment.dao.mapper.AttachmentMapper;
 import com.vansec.attachment.domain.Attachment;
 import com.vansec.comm.domain.Entity;
 import com.vansec.comm.exception.DataAccessException;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +28,16 @@ public class AttachmentDao {
     private AttachmentMapper mapper;
 
     /**
-     * 插入附件
-     *
+     * 插入附件.
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    public void insert(Attachment attachment, Post post) {
+    public void insert(Attachment attachment, User user) {
         try {
             Date time = new Date();
             attachment.setCreateTime(time);
             attachment.setUpdateTime(time);
-            mapper.insert(attachment, post);
+            mapper.insert(attachment, user);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             throw new DataAccessException(AttachmentModule.ERR_DAO_ATTACHMENT_INSERT, e);
@@ -46,15 +45,14 @@ public class AttachmentDao {
     }
 
     /**
-     * 更新附件
-     *
+     * 更新附件.
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    public void update(Attachment attachment, Post post) {
+    public void update(Attachment attachment, User user) {
         try {
             attachment.setUpdateTime(new Date());
-            mapper.update(attachment, post);
+            mapper.update(attachment, user);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             throw new DataAccessException(AttachmentModule.ERR_DAO_ATTACHMENT_UPDATE, e);
@@ -66,11 +64,11 @@ public class AttachmentDao {
      *
      * @param id      附件流水号
      * @param newName 附件新名称
-     * @param post    岗位对象
+     * @param user    用户对象
      */
-    public void updateNewName(String id, String newName, Post post) {
+    public void updateNewName(String id, String newName, User user) {
         try {
-            mapper.updateNewName(id, newName, post, new Date());
+            mapper.updateNewName(id, newName, user, new Date());
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             throw new DataAccessException(AttachmentModule.ERR_DAO_ATTACHMENT_UPDATE_NEW_NAME, e);

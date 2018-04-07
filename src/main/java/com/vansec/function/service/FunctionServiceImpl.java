@@ -81,26 +81,26 @@ public class FunctionServiceImpl implements  FunctionService{
     }
 
     @Override
-    public List<Function> getByPostId(String postId, String parentId) {
-        return functionDao.getByPostId(postId, parentId);
+    public List<Function> getByUserId(String userId, String parentId) {
+        return functionDao.getByUserId(userId, parentId);
     }
 
     @Override
-    public Map<String, Object> getMapByPostId(String postId, List<Function> list) {
+    public Map<String, Object> getMapByUserId(String userId, List<Function> list) {
         Map<String, Object> map1 = new HashMap<>() ;
         for (int i = (list.size() - 1); i >= 0; i--) {
             String id  = list.get(i).getId() ;
-            List<Function> f = functionDao.getByPostId(postId, id);
-            getByPostId2(postId,f);
+            List<Function> f = functionDao.getByUserId(userId, id);
+            getByUserId2(userId, f);
             map1.put(id,f);
         }
         return map1;
     }
 
-    private void getByPostId2(String postId, List<Function> list){
+    private void getByUserId2(String userId, List<Function> list){
         for(Function f : list){
-            List<Function> c = functionDao.getByPostId(postId,f.getId());
-            this.getByPostId2(postId, c);
+            List<Function> c = functionDao.getByUserId(userId, f.getId());
+            this.getByUserId2(userId, c);
             f.setChildren(c);
         }
     }
@@ -111,9 +111,9 @@ public class FunctionServiceImpl implements  FunctionService{
     }
 
     @Override
-    public Set<String> getButtonByPostId( String userId) {
+    public Set<String> getButtonByUserId( String userId) {
         Set<String> s = new HashSet<>();
-        List<Function> list = functionDao.getButtonByPostId(userId);
+        List<Function> list = functionDao.getButtonByUserId(userId);
         for(int i=0;i<list.size();i++){
             s.add(list.get(i).getCode());
         }

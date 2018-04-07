@@ -2,8 +2,7 @@ package com.vansec.security.authenticate;
 
 import com.vansec.comm.context.SecurityContextHolder;
 import com.vansec.comm.context.SystemContextHolder;
-import com.vansec.org.domain.Post;
-import com.vansec.org.domain.User;
+import com.vansec.user.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -25,7 +24,7 @@ public class AuthenticateInterceptor extends HandlerInterceptorAdapter {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object user) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object userObject) throws Exception {
         boolean result = false;
 
         String ctx = request.getContextPath();
@@ -45,8 +44,8 @@ public class AuthenticateInterceptor extends HandlerInterceptorAdapter {
             }
         }
 
-        Post post = SecurityContextHolder.getPost();
-        if (post == null) {
+        User user = SecurityContextHolder.getUser();
+        if (user == null) {
             result = false;
             response.sendRedirect(ctx + SystemContextHolder.getLogin());
             return result;

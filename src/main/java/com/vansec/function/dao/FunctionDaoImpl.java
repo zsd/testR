@@ -17,7 +17,7 @@ import java.util.List;
  * @author huangfx
  */
 @Repository
-public class FunctionDaoImpl  implements FunctionDao{
+public class FunctionDaoImpl  implements FunctionDao {
 
     private static Logger logger = LoggerFactory.getLogger(FunctionDaoImpl.class);
 
@@ -53,8 +53,8 @@ public class FunctionDaoImpl  implements FunctionDao{
     public List<TreeNode> getAllNode(){ return functionMapper.getAllNode();}
 
     @Override
-    public List<Function> getByPostId(String postId, String parentId) {
-        return functionMapper.getByPostId(postId,parentId);
+    public List<Function> getByUserId(String userId, String parentId) {
+        return functionMapper.getByUserId(userId, parentId);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class FunctionDaoImpl  implements FunctionDao{
     }
 
     @Override
-    public List<Function> getButtonByPostId( String userId) {
-        return functionMapper.getButtonByPostId(userId);
+    public List<Function> getButtonByUserId( String userId) {
+        return functionMapper.getButtonByUserId(userId);
     }
 }

@@ -4,7 +4,7 @@ import com.vansec.AbstractTest;
 import com.vansec.comm.orm.Page;
 import com.vansec.example.domain.Example;
 import com.vansec.example.service.ExampleService;
-import com.vansec.org.domain.User;
+import com.vansec.user.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

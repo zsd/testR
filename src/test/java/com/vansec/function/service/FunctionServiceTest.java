@@ -5,7 +5,6 @@ import com.vansec.comm.DataUtils;
 import com.vansec.frontset.service.LoginService;
 import com.vansec.function.domain.Function;
 import com.vansec.function.domain.TreeNode;
-import com.vansec.org.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +54,7 @@ public class FunctionServiceTest   extends AbstractTest {
 
     @Test
     public void getByPostId() {
-        List<Function> functionList = functionService.getByPostId(DataUtils.ID_1, "root");
+        List<Function> functionList = functionService.getByUserId(DataUtils.ID_1, "root");
         Assert.assertNotNull(functionList);
     }
 }

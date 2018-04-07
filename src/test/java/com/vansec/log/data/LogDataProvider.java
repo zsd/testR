@@ -8,8 +8,8 @@ import com.vansec.location.domain.Gps;
 import com.vansec.comm.domain.Client;
 import com.vansec.log.domain.Log;
 import com.vansec.comm.domain.Module;
-import com.vansec.org.data.PostDataProvider;
-import com.vansec.org.domain.Post;
+import com.vansec.user.data.UserDataProvider;
+import com.vansec.user.domain.User;
 
 /**
  * 业务日志测试数据提供类.
@@ -28,9 +28,9 @@ public final class LogDataProvider {
         Gps gps = new Gps();
         gps.setLongitude("110");
         gps.setLatitude("20");
-        Post post = PostDataProvider.post1();
+        User user = UserDataProvider.getUser1();
         Client client = ClientFactory.getClient(ClientFactory.TYPE_PC_WEB);
-        return new Log(Log.TYPE_ADD, "新增一条地名地址信息", "1.1.1.1", module, obj, post, gps, client);
+        return new Log(Log.TYPE_ADD, "新增一条地名地址信息", "1.1.1.1", module, obj, user, gps, client);
     }
 
     private LogDataProvider() {}

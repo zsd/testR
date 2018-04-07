@@ -27,30 +27,32 @@ public interface FunctionDao {
     void update(Function function);
 
     /**
-     * 根据ID删除
+     * 根据ID删除.
      */
     void delete(String id);
 
+    /**
+     * 根据父节点删除功能列表.
+     */
     void deleteByParent(List<String> list);
 
     /**
-     * 获取所有节点信息
-     * @return
+     * 获取所有节点信息.
      */
     List<TreeNode> getAllNode();
 
     /**
-     * 根据岗位获取列表.
+     * 根据用户获取列表.
      */
-    List<Function> getByPostId(String postId, String parentId);
+    List<Function> getByUserId(String userId, String parentId);
 
     /**
      * 编号判断.
      */
-    long checkedCode(String id,String code);
+    long checkedCode(String id, String code);
 
     /**
      * 根据用户获取按钮权限.
      */
-    List<Function> getButtonByPostId(String postId);
+    List<Function> getButtonByUserId(String userId);
 }

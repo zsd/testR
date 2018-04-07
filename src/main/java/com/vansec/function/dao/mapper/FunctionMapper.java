@@ -29,21 +29,24 @@ public interface FunctionMapper {
     void update(Function function);
 
     /**
-     * 根据ID删除
+     * 根据ID删除.
      */
     void delete(String id);
+
+    /**
+     * 根据父节点删除功能列表.
+     */
     void deleteByParent(List<String> list);
 
     /**
-     * 获取所有节点信息
-     * @return
+     * 获取所有节点信息.
      */
     List<TreeNode> getAllNode();
 
     /**
      * 根据岗位获取列表.
      */
-    List<Function> getByPostId(@Param("postId") String postId, @Param("parentId") String parentId);
+    List<Function> getByUserId(@Param("postId") String postId, @Param("parentId") String parentId);
 
     /**
      * 编号判断.
@@ -53,5 +56,5 @@ public interface FunctionMapper {
     /**
      * 根据用户获取按钮权限.
      */
-    List<Function> getButtonByPostId(@Param("postId")String postId);
+    List<Function> getButtonByUserId(@Param("postId")String postId);
 }

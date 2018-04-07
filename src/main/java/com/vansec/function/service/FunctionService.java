@@ -42,12 +42,12 @@ public interface FunctionService {
      * 根据岗位ID获取列表.
      * 根菜单，需要传入"root"作为parentId
      */
-    List<Function> getByPostId(String postId,String parentId);
+    List<Function> getByUserId(String userId,String parentId);
 
     /**
      * 根据用户获取权限.
      */
-    Map<String, Object> getMapByPostId(String postId, List<Function> list);
+    Map<String, Object> getMapByUserId(String postId, List<Function> list);
 
     /**
      * 编号判断.
@@ -57,5 +57,5 @@ public interface FunctionService {
     /**
      * 根据用户获取按钮权限.
      */
-    Set<String> getButtonByPostId(String postId);
+    Set<String> getButtonByUserId(String userId);
 }

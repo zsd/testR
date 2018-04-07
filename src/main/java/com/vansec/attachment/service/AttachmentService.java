@@ -3,7 +3,7 @@ package com.vansec.attachment.service;
 import com.vansec.attachment.domain.Attachment;
 import com.vansec.comm.domain.Entity;
 import com.vansec.comm.orm.Page;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -20,26 +20,26 @@ public interface AttachmentService {
      * 插入附件
      *
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    void insert(Attachment attachment, Post post);
+    void insert(Attachment attachment, User user);
 
     /**
      * 更新附件
      *
      * @param attachment 附件实体对象
-     * @param post       岗位对象
+     * @param user       用户对象
      */
-    void update(Attachment attachment, Post post);
+    void update(Attachment attachment, User user);
 
     /**
      * 更新附件新名称
      *
      * @param id      附件流水号
      * @param newName 附件新名称
-     * @param post    岗位对象
+     * @param user    用户对象
      */
-    void updateNewName(String id, String newName, Post post);
+    void updateNewName(String id, String newName, User user);
 
     /**
      * 删除附件

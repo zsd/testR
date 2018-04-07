@@ -7,7 +7,7 @@ import com.vansec.attachment.service.AttachmentService;
 import com.vansec.comm.context.SecurityContextHolder;
 import com.vansec.comm.utils.Identities;
 import com.vansec.comm.utils.JsonMapper;
-import com.vansec.org.domain.Post;
+import com.vansec.user.domain.User;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,18 +93,16 @@ public class UploadController {
         attachment.setSuffix(suffix);
         attachment.setFileSize(size);
 
-        Post post = SecurityContextHolder.getPost();
-//        Post post = jsonMapper.fromJson(json, Post.class);
-        attachment.setCreator(post);
+        User user = SecurityContextHolder.getUser();
+        attachment.setCreator(user);
 
         if (isUploadDHFS) {
             path = attachmentService.write2HDFSByYear(file.getInputStream(), "【"+uuid2+"】"+fileName);//上传到Hadoop
         } else {
-//            String realPath = request.getSession().getServletContext().getRealPath("/");
             path = attachmentService.write2ServerByYear(file.getInputStream(), "【"+uuid2+"】"+fileName);//上传到本地服务
         }
         attachment.setPath(path);
-        attachmentService.insert(attachment, post);
+        attachmentService.insert(attachment, user);
 
         AttachRelation attachRelation = new AttachRelation(attachment, type, id);
         attachRelationService.insert(attachRelation);

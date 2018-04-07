@@ -1,7 +1,6 @@
 package com.vansec.comm.context;
 
-import com.vansec.org.domain.Post;
-import com.vansec.org.domain.User;
+import com.vansec.user.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,8 +11,8 @@ import java.util.Set;
  */
 public class SecurityContextHolder {
 
-    /** 岗位上下文 */
-    public static String POST_CONTEXT = "POST_CONTEXT";
+    /** 用户上下文 */
+    public static String USER_CONTEXT = "USER_CONTEXT";
 
     /** 权限上下文 */
     public static String AUTHORITY_CONTEXT = "AUTHORITY_CONTEXT";
@@ -26,19 +25,19 @@ public class SecurityContextHolder {
     /**
      * 从会话中获取岗位.
      */
-    public static Post getPost() {
+    public static User getUser() {
         HttpServletRequest request = ServletContextHolder.getRequest();
-        return (Post) request.getSession().getAttribute(POST_CONTEXT);
+        return (User) request.getSession().getAttribute(USER_CONTEXT);
     }
 
     /**
      * 在会话中设置岗位.
-     * @param post 岗位
+     * @param user 岗位
      */
-    public static void setPost(Post post) {
+    public static void setPost(User user) {
         HttpServletRequest request = ServletContextHolder.getRequest();
         HttpSession session = request.getSession();
-        session.setAttribute(POST_CONTEXT, post);
+        session.setAttribute(USER_CONTEXT, user);
     }
 
     /**
@@ -66,7 +65,7 @@ public class SecurityContextHolder {
     public static void destroy() {
         HttpServletRequest request = ServletContextHolder.getRequest();
         HttpSession session = request.getSession();
-        session.removeAttribute(POST_CONTEXT);
+        session.removeAttribute(USER_CONTEXT);
         session.removeAttribute(AUTHORITY_CONTEXT);
         session.invalidate();
     }

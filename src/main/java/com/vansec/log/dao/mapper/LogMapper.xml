@@ -21,48 +21,8 @@
         <result column="longitude"       property="gps.longitude"/> <!--经度-->
         <result column="create_time"     property="createTime"/> <!--创建时间-->
 
-        <result column="post_id"    property="post.id"/> <!--岗位ID-->
-        <result column="post_name"  property="post.name"/> <!--岗位名称-->
-
-        <result column="user_id"    property="post.user.id"/> <!--用户ID-->
-        <result column="user_name"  property="post.user.name"/> <!--用户名称-->
-
-        <result column="department_id"    property="post.parent.id"/> <!--部门ID-->
-        <result column="department_name"  property="post.parent.name"/> <!--部门名称-->
-
-        <result column="org_id"    property="post.parent.parent.id"/> <!--单位ID-->
-        <result column="org_name"  property="post.parent.parent.name"/> <!--单位名称-->
-
-        <!--<association property="post" resultMap="postMap"/>-->
-    </resultMap>
-
-    <!-- 岗位 -->
-    <resultMap id="postMap" type="com.vansec.org.domain.Post">
-        <result column="post_id"    property="post.id"/> <!--岗位ID-->
-        <result column="post_name"  property="post.name"/> <!--岗位名称-->
-
-        <association property="user"    resultMap="userMap" />
-        <association property="parent"  resultMap="departmentMap" />
-    </resultMap>
-
-    <!-- 用户 -->
-    <resultMap id="userMap" type="com.vansec.org.domain.User">
-        <result column="user_id"    property="user.id"/> <!--用户ID-->
-        <result column="user_name"  property="user.name"/> <!--用户名称-->
-    </resultMap>
-
-    <!-- 部门 -->
-    <resultMap id="departmentMap" type="com.vansec.org.domain.Department">
-        <result column="department_id"    property="parent.id"/> <!--部门ID-->
-        <result column="department_name"  property="parent.name"/> <!--部门名称-->
-
-        <association property="parent"  resultMap="orgMap" />
-    </resultMap>
-
-    <!-- 单位 -->
-    <resultMap id="orgMap" type="com.vansec.org.domain.Org">
-        <result column="org_id"    property="parent.id"/> <!--单位ID-->
-        <result column="org_name"  property="parent.name"/> <!--单位名称-->
+        <result column="user_id"         property="user.id"/> <!--用户ID-->
+        <result column="user_name"       property="user.name"/> <!--用户名称-->
     </resultMap>
 
     <sql id="table-name">plat_log</sql>
@@ -116,17 +76,10 @@
 
             #{obj.objType.id,           jdbcType=VARCHAR  },
             #{obj.objType.name,         jdbcType=VARCHAR  },
-            #{post.user.id,             jdbcType=VARCHAR  },
-            #{post.user.name,           jdbcType=VARCHAR  },
-            #{post.id,                  jdbcType=VARCHAR  },
-            #{post.name,                jdbcType=VARCHAR  },
-
-            #{post.parent.id,           jdbcType=VARCHAR  },
-            #{post.parent.name,         jdbcType=VARCHAR  },
-            #{post.parent.parent.id,    jdbcType=VARCHAR  },
-            #{post.parent.parent.name,  jdbcType=VARCHAR  },
-
+            #{user.id,                  jdbcType=VARCHAR  },
+            #{user.name,                jdbcType=VARCHAR  },
             #{gps.latitude,             jdbcType=VARCHAR  },
+
             #{gps.longitude,            jdbcType=VARCHAR  },
             now()
         )
