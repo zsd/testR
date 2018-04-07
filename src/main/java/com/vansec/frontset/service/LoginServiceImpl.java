@@ -41,16 +41,11 @@ public class LoginServiceImpl implements LoginService {
                     || !MD5Encryption.checkpassword(user.getPassword(),realUser.getPassword())) {
                 return Constants.LOGINNAME_OR_PASSWORD_ERROR;
             }
-//            List<Post> postList = postService.getByUserId(realUser.getId());
-//            if (CollectionUtils.isEmpty(postList)) {
-//                return Constants.SYSTEM_ERROR;
-//            }
-//            Post post = postList.get(0); // 这个地方可以按照主岗位选择
-//            post.setUser(realUser);
-//
-//            Set<String> buttonSet =  functionService.getButtonByPostId(post.getId());
-//            SecurityContextHolder.setPost(post);
-//            SecurityContextHolder.setAuthoritySet(buttonSet);
+
+            Set<String> buttonSet =  functionService.getButtonByUserId(user.getId());
+            SecurityContextHolder.setUser(user);
+            SecurityContextHolder.setAuthoritySet(buttonSet);
+
         } catch (Exception e) {
             e.printStackTrace();
             return Constants.SYSTEM_ERROR;

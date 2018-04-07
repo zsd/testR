@@ -34,7 +34,7 @@ public class SecurityContextHolder {
      * 在会话中设置岗位.
      * @param user 岗位
      */
-    public static void setPost(User user) {
+    public static void setUser(User user) {
         HttpServletRequest request = ServletContextHolder.getRequest();
         HttpSession session = request.getSession();
         session.setAttribute(USER_CONTEXT, user);

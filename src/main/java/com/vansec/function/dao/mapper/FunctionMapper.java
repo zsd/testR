@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by 黄辅湘 on 2016/6/22.
+ * 功能数据访问接口.
+ * @author zhousd
  */
 @Repository
 public interface FunctionMapper {
@@ -46,15 +47,15 @@ public interface FunctionMapper {
     /**
      * 根据岗位获取列表.
      */
-    List<Function> getByUserId(@Param("postId") String postId, @Param("parentId") String parentId);
+    List<Function> getByUserId(@Param("userId") String userId, @Param("parentId") String parentId);
 
     /**
      * 编号判断.
      */
-    long checkedCode(@Param("id")String id, @Param("code")String code);
+    long checkedCode(@Param("id") String id, @Param("code") String code);
 
     /**
      * 根据用户获取按钮权限.
      */
-    List<Function> getButtonByUserId(@Param("postId")String postId);
+    List<Function> getButtonByUserId(@Param("userId") String userId);
 }

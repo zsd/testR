@@ -47,7 +47,7 @@ public interface FunctionService {
     /**
      * 根据用户获取权限.
      */
-    Map<String, Object> getMapByUserId(String postId, List<Function> list);
+    Map<String, Object> getMapByUserId(String userId, List<Function> list);
 
     /**
      * 编号判断.

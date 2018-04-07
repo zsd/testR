@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 public class SystemContextHolder {
 
     /**
-     * 系统环境参数, 详见 com.huge.comm.utils.Constants
+     * 系统环境参数, 详见 com.vansec.comm.utils.Constants
      *
      * 开发:development
      * 测试:test

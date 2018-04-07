@@ -28,7 +28,7 @@ public final class LogDataProvider {
         Gps gps = new Gps();
         gps.setLongitude("110");
         gps.setLatitude("20");
-        User user = UserDataProvider.getUser1();
+        User user = UserDataProvider.getUser();
         Client client = ClientFactory.getClient(ClientFactory.TYPE_PC_WEB);
         return new Log(Log.TYPE_ADD, "新增一条地名地址信息", "1.1.1.1", module, obj, user, gps, client);
     }

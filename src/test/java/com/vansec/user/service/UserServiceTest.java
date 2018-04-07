@@ -23,7 +23,7 @@ public class UserServiceTest extends AbstractTest {
      */
     @Test
     public void saveTest(){
-        User user = UserDataProvider.getUser1();
+        User user = UserDataProvider.getUser();
         userService.save(user);
     }
 
@@ -65,7 +65,7 @@ public class UserServiceTest extends AbstractTest {
      */
     @Test
     public void saveAdminTest(){
-        User user = UserDataProvider.getUser1();
+        User user = UserDataProvider.getUser();
         user.setId(null);
         user.setLoginName("admin");
         user.setName("管理员");
