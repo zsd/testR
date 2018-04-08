@@ -5,7 +5,6 @@
 <mapper namespace="com.vansec.user.dao.mapper.UserMapper">
 
     <resultMap id="userMap" type="com.vansec.user.domain.User">
-
         <result column="id"            property="id" /> <!-- 用户ID -->
         <result column="login_name"    property="loginName" /> <!-- 登录名称 -->
         <result column="password"      property="password" /> <!-- 密码 -->

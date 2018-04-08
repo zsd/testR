@@ -33,7 +33,7 @@ public class User extends EntityImpl {
 
     private int rewardPoint; // 奖励积分
 
-    private List<Role> roleList; // 当前岗位使用角色集合
+    private Group group; // 用户所属用户组
 
     public User() {
         super();
@@ -75,14 +75,6 @@ public class User extends EntityImpl {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
     }
 
     public String getPhoto() {
@@ -139,5 +131,13 @@ public class User extends EntityImpl {
 
     public void setRewardPoint(int rewardPoint) {
         this.rewardPoint = rewardPoint;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

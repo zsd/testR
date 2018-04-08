@@ -1,7 +1,5 @@
 package com.vansec.comm.domain;
 
-import com.vansec.flow.domain.support.*;
-
 import java.io.Serializable;
 import java.util.Date;
 

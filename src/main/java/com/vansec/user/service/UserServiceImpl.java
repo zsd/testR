@@ -6,12 +6,12 @@ import com.vansec.comm.utils.Identities;
 import com.vansec.user.dao.UserDao;
 import com.vansec.user.domain.User;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,49 +22,64 @@ import java.util.Map;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserDao userDao;
 
     @Override
     public User getByLoginName(String loginName) {
-        User user = userDao.getByLoginName(loginName);
-        return user;
+        try {
+            return userDao.getByLoginName(loginName);
+        } catch (Exception e) {
+            logger.error("get user by loginname error!", e);
+        }
+        return null;
     }
 
     @Override
     public User getById(String id) {
-        User user = userDao.getById(id);
-        return user;
+        try {
+            User user = userDao.getById(id);
+            return user;
+        } catch (Exception e) {
+            logger.error("get user by id error!", e);
+        }
+        return null;
     }
 
     @Override
     public void save(User user) {
-        try{
+        try {
             if (user != null && StringUtils.isEmpty(user.getId())) {
                 user.setId(Identities.uuid());
             }
             //对密码进行加密
             user.setPassword(MD5Encryption.EncoderByMd5(user.getPassword()));
             userDao.save(user);
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e){
+            logger.error("save user error!", e);
         }
     }
 
     @Override
     public void update(User user) {
-        try{
+        try {
             //对密码进行加密
             user.setPassword(MD5Encryption.EncoderByMd5(user.getPassword()));
             userDao.update(user);
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e){
+            logger.error("update user error!", e);
         }
     }
 
     @Override
     public void delete(String id) {
-        userDao.delete(id);
+        try {
+            userDao.delete(id);
+        } catch (Exception e) {
+            logger.error("delete user by id error!", e);
+        }
     }
 
     @Override
@@ -80,11 +95,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> search(Page<User> page, Map<String, Object> param) {
-        return userDao.search(page, param);
+        try {
+            return userDao.search(page, param);
+        } catch (Exception e) {
+            logger.error("search user error!", e);
+        }
+        return null;
     }
 
     @Override
     public long checkLoginName(String id,String loginName){
-        return userDao.checkLoginName(id,loginName);
+        try {
+            return userDao.checkLoginName(id,loginName);
+        } catch (Exception e) {
+            logger.error("check user by loginname error!", e);
+        }
+        return 0;
     }
 }

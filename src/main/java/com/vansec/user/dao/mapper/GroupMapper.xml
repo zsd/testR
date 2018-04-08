@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vansec.user.dao.mapper.GroupMapper">
+
+    <resultMap id="groupMap" type="com.vansec.user.domain.Group">
+        <result column="id"            property="id" /> <!-- ID -->
+        <result column="name"          property="name" /> <!-- 名称 -->
+        <result column="create_time"   property="createTime" /> <!-- 创建时间 -->
+        <result column="update_time"   property="updateTime" /> <!-- 更新时间 -->
+    </resultMap>
+
+    <sql id="table-name">plat_group</sql>
+
+    <!-- sql片段 -->
+    <sql id="sqlPart">
+        id,  name,  create_time,  update_time
+    </sql>
+
+    <!-- 根据ID获取 -->
+    <select id="getById" parameterType="String" resultMap="groupMap">
+        select
+        <include refid="sqlPart"/>
+        from <include refid="table-name"/>
+        where id = #{id}
+    </select>
+
+    <!--保存-->
+    <insert id="save" parameterType="com.vansec.user.domain.Group">
+        insert into <include refid="table-name"/>
+        (<include refid="sqlPart"/>)
+        values (
+        #{id},
+        #{name},
+        now(),
+        now()
+        )
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="com.vansec.user.domain.Group">
+        update <include refid="table-name"/>
+        set
+        name = #{name},
+        where id = #{id}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="delete" parameterType="string">
+        delete from <include refid="table-name"/> where id = #{id}
+    </delete>
+
+    <!-- 查询, 查询记录数 -->
+    <select id="count" resultType="long">
+        select count(id)
+        from <include refid="table-name"/>
+        <where>
+            <if test="name != null">
+                and name LIKE '%${name}%'
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询, 1.输入用map传入多个参数 2.<where>语句, 添加where和and关键字 3.输出直接映射对象 -->
+    <select id="search" resultMap="groupMap">
+        select <include refid="sqlPart"/>
+        from <include refid="table-name"/>
+        <where>
+            <if test="name != null">
+                and name LIKE '%${name}%'
+            </if>
+        </where>
+        ORDER BY update_time DESC
+        LIMIT #{skip,     jdbcType=NUMERIC  }, #{limit,     jdbcType=NUMERIC  }
+    </select>
+
+</mapper>

@@ -1,6 +1,7 @@
 package bussiness.comm;
 
 import com.vansec.comm.domain.Module;
+import org.apache.commons.lang.StringUtils;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
@@ -16,33 +17,30 @@ import java.util.Map;
 public final class MD5Encryption {
 
     /**
-     * 加密方法
+     * 加密方法.
      * @param str 需要加密的字符串
-     * @return  加密后的字符串
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
+     * @return 加密后的字符串
      */
     public static String EncoderByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+        if (StringUtils.isBlank(str)) {
+            return str;
+        }
         //确定计算方法
-        MessageDigest md5=MessageDigest.getInstance("MD5");
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
         BASE64Encoder base64en = new BASE64Encoder();
         //加密后的字符串
-        String newStr=base64en.encode(md5.digest(str.getBytes("utf-8")));
-        return newStr;
+        return base64en.encode(md5.digest(str.getBytes("utf-8")));
     }
 
     /**
-     * 解密方法
+     * 解密方法.
      * @param newPassword 输入的字符串
      * @param oldPassword 数据库存储的字符串
-     * @return  是否一致
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
+     * @return 是否一致
      */
-    public static boolean checkpassword(String newPassword,String oldPassword) throws NoSuchAlgorithmException, UnsupportedEncodingException{
-        if(EncoderByMd5(newPassword).equals(oldPassword))
-            return true;
-        else
-            return false;
+    public static boolean checkpassword(String newPassword, String oldPassword)
+            throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        return EncoderByMd5(newPassword).equals(oldPassword);
     }
 }

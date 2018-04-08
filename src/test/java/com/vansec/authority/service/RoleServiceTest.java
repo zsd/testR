@@ -48,7 +48,7 @@ public class RoleServiceTest extends AbstractTest {
             role.setId("aa" + i);
             roleList.add(role);
         }
-        user.setRoleList(roleList);
+//        user.setRoleList(roleList); TODO
         roleService.saveOrgRole(user);
     }
 }
