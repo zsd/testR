@@ -18,7 +18,7 @@ import java.util.List;
 @Transactional
 public class RoleFunctionServiceImpl implements RoleFunctionService{
 
-    private static Logger logger = LoggerFactory.getLogger(AuthorityServiceImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(RoleFunctionServiceImpl.class);
 
     @Autowired
     private RoleFunctionDao roleFunctionDao;

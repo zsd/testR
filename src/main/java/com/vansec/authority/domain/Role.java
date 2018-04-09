@@ -15,21 +15,6 @@ public class Role extends EntityImpl {
 
     private String description; // 描述
 
-    private List<Authority> authorityList; // 关联权限集合
-
-    @JsonIgnore
-    public String getSquenceName() {
-        return "seq_ssim_role_id";
-    }
-
-    public List<Authority> getAuthorityList() {
-        return authorityList;
-    }
-
-    public void setAuthorityList(List<Authority> authorityList) {
-        this.authorityList = authorityList;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }

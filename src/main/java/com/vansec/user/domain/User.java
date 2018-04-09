@@ -33,7 +33,7 @@ public class User extends EntityImpl {
 
     private int rewardPoint; // 奖励积分
 
-    private Group group; // 用户所属用户组
+    private Role role; // 用户所属权限角色
 
     public User() {
         super();
@@ -133,11 +133,11 @@ public class User extends EntityImpl {
         this.rewardPoint = rewardPoint;
     }
 
-    public Group getGroup() {
-        return group;
+    public Role getRole() {
+        return role;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

@@ -15,12 +15,12 @@ import java.util.Map;
 public interface RoleService {
 
     /**
-     * 根据角色ID获取角色.
-     * @param postId 角色ID
+     * 根据用户ID获取角色.
+     * @param userId 用户ID
      * @return 角色实体
      * @throws ServiceException 服务异常
      */
-    List<Role> getByPostId(String postId) throws ServiceException;
+    List<Role> getByUserId(String userId) throws ServiceException;
 
     /**
      * 保存角色.
@@ -51,5 +51,5 @@ public interface RoleService {
      * 保存用户角色关联.
      * @param user 用户
      */
-    void saveOrgRole(User user);
+    void saveUserRole(User user);
 }

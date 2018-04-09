@@ -1,10 +1,7 @@
 package com.vansec.authority.service;
 
 import com.vansec.AbstractTest;
-import com.vansec.authority.data.AuthorityDataProvider;
 import com.vansec.authority.domain.RoleFunction;
-import com.vansec.comm.DataUtils;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

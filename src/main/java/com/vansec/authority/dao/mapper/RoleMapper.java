@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 行政区域角色Mapper类.
+ * 角色Mapper类.
  * @author zhousd
  */
 @Repository
 public interface RoleMapper {
 
     /**
-     * 根据岗位ID获取角色.<p/>
-     * @param postId 岗位ID
+     * 根据用户ID获取角色.<p/>
+     * @param userId 岗位ID
      * @return 角色
      */
-    List<Role> getByPostId(String postId);
+    List<Role> getByUserId(String userId);
 
     /**
      * 保存角色.
@@ -55,21 +55,20 @@ public interface RoleMapper {
 
     /**
      * 保存组织角色关联
-     * @param orgId 组织机构ID
-     * @param type 组织机构类型
+     * @param userId 用户ID
      * @param roleId 角色ID
      */
-    void saveOrgRole(@Param("orgId") String orgId, @Param("type") int type, @Param("roleId") String roleId);
+    void saveUserRole(@Param("userId") String userId, @Param("roleId") String roleId);
 
     /**
-     * 根据组织机构ID删除组织角色关联
-     * @param orgId 组织机构ID
+     * 根据用户ID删除组织角色关联
+     * @param userId 用户ID
      */
-    void deleteByOrg(String orgId);
+    void deleteByUserId(String userId);
 
     /**
      * 根据角色ID删除组织角色关联
-     * @param roleId 组织机构ID
+     * @param roleId 角色ID
      */
     void deleteByRole(String roleId);
 }

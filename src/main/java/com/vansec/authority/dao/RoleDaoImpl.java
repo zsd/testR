@@ -25,16 +25,16 @@ public class RoleDaoImpl implements RoleDao {
     private RoleMapper roleMapper;
 
     /**
-     * 根据岗位ID获取角色.
-     * @param postId 岗位Id
+     * 根据用户ID获取角色.
+     * @param userId 用户Id
      * @return 角色
      */
-    public List<Role> getByPostId(String postId) throws DataAccessException {
+    public List<Role> getByUserId(String userId) throws DataAccessException {
         try {
-            return roleMapper.getByPostId(postId);
+            return roleMapper.getByUserId(userId);
         } catch (Exception e) {
-            logger.error("Get list by post id error!", e);
-            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_GETBYPOSTID, e);
+            logger.error("Get list by user id error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_GETBYUSERID, e);
         }
     }
 
@@ -53,45 +53,84 @@ public class RoleDaoImpl implements RoleDao {
      * @param role 角色
      */
     @Override
-    public void update(Role role){roleMapper.update(role);}
+    public void update(Role role) throws DataAccessException {
+        try {
+            roleMapper.update(role);
+        } catch (Exception e) {
+            logger.error("Update role error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_UPDATE, e);
+        }
+    }
 
     /**
      * 删除角色
      * @param id 角色主键id
      */
     @Override
-    public void delete(String id){roleMapper.delete(id);}
-
-    /**
-     * 根据条件分页查询角色
-     * @param param 参数
-     * @return
-     */
-    @Override
-    public List<Role> search(Map<String, Object> param){
-        return roleMapper.search(param);
+    public void delete(String id) throws DataAccessException {
+        try {
+            roleMapper.delete(id);
+        } catch (Exception e) {
+            logger.error("Delete role error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_DELETE, e);
+        }
     }
 
     /**
-     * 根据条件查询扶贫对象总数
+     * 根据条件分页查询角色.
      * @param param 参数
-     * @return
      */
     @Override
-    public long count(Map<String, Object> param){ return roleMapper.count(param);}
+    public List<Role> search(Map<String, Object> param) throws DataAccessException {
+        try {
+            return roleMapper.search(param);
+        } catch (Exception e) {
+            logger.error("Search role list error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_SEARCH, e);
+        }
+    }
 
+    /**
+     * 根据条件查询数量.
+     * @param param 参数
+     */
     @Override
-    public void saveOrgRole(String orgId, int type, String roleId) {
-        roleMapper.saveOrgRole(orgId, type, roleId);
+    public long count(Map<String, Object> param) throws DataAccessException {
+        try {
+            return roleMapper.count(param);
+        } catch (Exception e) {
+            logger.error("Search role count error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_SEARCHCOUNT, e);
+        }
     }
 
     @Override
-    public void deleteByOrg(String orgId) {
-        roleMapper.deleteByOrg(orgId);
+    public void saveUserRole(String userId, String roleId) throws DataAccessException {
+        try {
+            roleMapper.saveUserRole(userId, roleId);
+        } catch (Exception e) {
+            logger.error("Save user role error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_SAVEUSERROLE, e);
+        }
     }
 
     @Override
-    public void deleteByRole(String roleId) {
-        roleMapper.deleteByRole(roleId);
+    public void deleteByUserId(String userId) throws DataAccessException {
+        try {
+            roleMapper.deleteByUserId(userId);
+        } catch (Exception e) {
+            logger.error("Delete role list by user id error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_DELETEBYUSERID, e);
+        }
+    }
+
+    @Override
+    public void deleteByRole(String roleId) throws DataAccessException {
+        try {
+            roleMapper.deleteByRole(roleId);
+        } catch (Exception e) {
+            logger.error("Delete role by role id error!", e);
+            throw new DataAccessException(AuthorityModule.ERR_DAO_ROLE_DELETEBYROLE, e);
+        }
     }
 }

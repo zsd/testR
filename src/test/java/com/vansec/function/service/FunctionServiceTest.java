@@ -2,7 +2,6 @@ package com.vansec.function.service;
 
 import com.vansec.AbstractTest;
 import com.vansec.comm.DataUtils;
-import com.vansec.frontset.service.LoginService;
 import com.vansec.function.domain.Function;
 import com.vansec.function.domain.TreeNode;
 import org.junit.Assert;
@@ -12,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Created by 黄辅湘 on 2016/6/22.
+ * 功能服务测试类.
+ * @author zhousd
  */
 public class FunctionServiceTest   extends AbstractTest {
+
     @Autowired
     private FunctionService functionService;
 

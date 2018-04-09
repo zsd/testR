@@ -13,7 +13,7 @@
 <meta name="author" content="">
 <link rel="icon" href="static/portal/images/favicon.ico">
 
-<title>泓杰网络软件平台</title>
+<title>试运行</title>
 
 
 <!-- Bootstrap start -->

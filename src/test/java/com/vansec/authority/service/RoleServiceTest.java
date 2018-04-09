@@ -1,17 +1,13 @@
 package com.vansec.authority.service;
 
 import com.vansec.AbstractTest;
-import com.vansec.authority.data.AuthorityDataProvider;
+import com.vansec.authority.data.RoleDataProvider;
 import com.vansec.authority.domain.Role;
 import com.vansec.comm.DataUtils;
 import com.vansec.user.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,28 +23,24 @@ public class RoleServiceTest extends AbstractTest {
 
     @Test
     public void testSave() {
-        Role role = AuthorityDataProvider.getRole();
+        Role role = RoleDataProvider.getRole();
         roleService.save(role);
     }
 
     @Test
-    public void testGetByPostId() {
-        List<Role> roles = roleService.getByPostId("75da578ca634427691fdea5f2e59f32f");
+    public void testGetByUserId() {
+        List<Role> roles = roleService.getByUserId("75da578ca634427691fdea5f2e59f32f");
         Assert.assertNotNull(roles);
     }
 
 
     @Test
-    public void testsaveOrgRole() {
+    public void testsaveUserRole() {
         User user = new User();
         user.setId("1");
-        List<Role> roleList = new ArrayList<>();
-        for (int i=0; i<5; i++) {
-            Role role = new Role();
-            role.setId("aa" + i);
-            roleList.add(role);
-        }
-//        user.setRoleList(roleList); TODO
-        roleService.saveOrgRole(user);
+        Role role = new Role();
+        role.setId(DataUtils.ID_1);
+        user.setRole(role);
+        roleService.saveUserRole(user);
     }
 }

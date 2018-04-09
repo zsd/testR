@@ -13,12 +13,12 @@ import java.util.Map;
 public interface RoleDao {
 
     /**
-     * 根据岗位ID获取角色.
-     * @param postId 岗位Id
+     * 根据用户ID获取角色.
+     * @param userId 用户Id
      * @return 角色
      * @throws DataAccessException 数据访问异常
      */
-    List<Role> getByPostId(String postId) throws DataAccessException;
+    List<Role> getByUserId(String userId) throws DataAccessException;
 
     /**
      * 保存角色.
@@ -31,45 +31,43 @@ public interface RoleDao {
      * 更新角色
      * @param role 角色
      */
-    void update(Role role);
+    void update(Role role) throws DataAccessException;;
 
     /**
      * 删除角色
      * @param id 角色主键id
      */
-    void delete(String id);
+    void delete(String id) throws DataAccessException;;
 
     /**
      * 根据条件分页查询角色
      * @param param 参数
-     * @return
      */
-    List<Role> search(Map<String, Object> param);
+    List<Role> search(Map<String, Object> param) throws DataAccessException;;
 
     /**
      * 根据条件查询角色总数
      * @param param 参数
-     * @return
      */
-    long count(Map<String, Object> param);
+    long count(Map<String, Object> param) throws DataAccessException;;
 
     /**
      * 保存组织角色关联
-     * @param orgId 组织机构ID
-     * @param type 组织机构类型
+     * @param userId 用户ID
      * @param roleId 角色ID
      */
-    void saveOrgRole(String orgId, int type, String roleId);
+    void saveUserRole(String userId, String roleId) throws DataAccessException;;
 
     /**
      * 根据组织机构ID删除组织角色关联
-     * @param orgId 组织机构ID
+     * @param userId 用户ID
      */
-    void deleteByOrg(String orgId);
+    void deleteByUserId(String userId) throws DataAccessException;;
+
     /**
      * 根据角色ID删除组织角色关联
      * @param roleId 组织机构ID
      */
-    void deleteByRole(String roleId);
+    void deleteByRole(String roleId) throws DataAccessException;;
 
 }

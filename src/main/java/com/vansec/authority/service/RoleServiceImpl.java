@@ -7,7 +7,6 @@ import com.vansec.comm.exception.ServiceException;
 import com.vansec.comm.orm.Page;
 import com.vansec.comm.utils.Identities;
 import com.vansec.user.domain.User;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,15 +29,16 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RoleDao roleDao;
+
     @Autowired
     private RoleFunctionDao roleFunctionDao;
 
     @Override
-    public List<Role> getByPostId(String postId) throws ServiceException {
+    public List<Role> getByUserId(String userId) throws ServiceException {
         try {
-            return roleDao.getByPostId(postId);
+            return roleDao.getByUserId(userId);
         } catch (Exception e) {
-            logger.error("Get list by post id error!", e);
+            logger.error("Get list by user id error!", e);
             throw new ServiceException(e);
         }
     }
@@ -82,16 +82,12 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void saveOrgRole(User user) {
-//        if (post == null) {
-//            return;
-//        }
-//        roleDao.deleteByOrg(user.getId());
-//        for (Role role : user.getRoleList()) {
-//            roleDao.saveOrgRole(user.getId(), post.getType(), role.getId());
-//        }
-
-        // todo
+    public void saveUserRole(User user) {
+        if (user == null || user.getRole() == null) {
+            return;
+        }
+        roleDao.deleteByUserId(user.getId());
+        roleDao.saveUserRole(user.getId(), user.getRole().getId());
     }
 
     @Override

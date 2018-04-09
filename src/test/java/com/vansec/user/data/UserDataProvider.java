@@ -10,6 +10,9 @@ public class UserDataProvider {
 
     private UserDataProvider() {}
 
+    /**
+     * 生成用户数据.
+     */
     public static User getUser() {
         User user = new User();
         user.setId(DataUtils.ID_1);

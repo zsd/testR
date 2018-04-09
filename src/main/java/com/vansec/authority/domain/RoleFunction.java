@@ -3,12 +3,14 @@ package com.vansec.authority.domain;
 import java.util.Date;
 
 /**
- * Created by msx on 2016/6/24.
- * 角色关联权限实体
+ * 角色关联权限实体.
+ * @author zhousd
  */
 public class RoleFunction {
-    private String roleId;
-    private String functionId;
+
+    private String roleId; // 关联角色ID
+
+    private String functionId; // 关联功能ID
 
     public RoleFunction() {
         super();
