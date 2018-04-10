@@ -42,8 +42,8 @@ public class LoginServiceImpl implements LoginService {
                 return Constants.LOGINNAME_OR_PASSWORD_ERROR;
             }
 
-            Set<String> buttonSet =  functionService.getButtonByUserId(user.getId());
-            SecurityContextHolder.setUser(user);
+            Set<String> buttonSet =  functionService.getButtonByUserId(realUser.getId());
+            SecurityContextHolder.setUser(realUser);
             SecurityContextHolder.setAuthoritySet(buttonSet);
 
         } catch (Exception e) {

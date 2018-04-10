@@ -28,17 +28,13 @@
         a.new_name    as attach_new_name,
         a.suffix      as attach_suffix,
         a.type        as attach_type,
+
         a.path        as attach_path,
         a.file_size   as file_size,
         a.user_id     as user_id,
         a.user_name   as user_name,
-        a.post_id     as post_id,
-        a.post_name   as post_name,
-        a.dept_id     as dept_id,
-        a.dept_name   as dept_name,
-        a.unit_id     as unit_id,
-        a.unit_name   as unit_name,
         a.create_time as create_time,
+
         a.update_time as update_time
     </sql>
 
@@ -57,33 +53,25 @@
     <insert id="insert">
         insert into plat_attachment
         (
-             id,          old_name,       new_name,       suffix,         type,
-             path,        file_size,      user_id,        user_name,      post_id,
-             post_name,   dept_id,        dept_name,      unit_id,        unit_name,
-             create_time, update_time
+             id,          old_name,   new_name,  suffix,     type,
+             path,        file_size,  user_id,   user_name,  create_time,
+             update_time
         )
         values
         (
-             #{attachment.id,                 jdbcType=VARCHAR  },
-             #{attachment.oldName,            jdbcType=VARCHAR  },
-             #{attachment.newName,            jdbcType=VARCHAR  },
-             #{attachment.suffix,             jdbcType=VARCHAR  },
-             #{attachment.type,               jdbcType=VARCHAR  },
+             #{attachment.id,          jdbcType=VARCHAR  },
+             #{attachment.oldName,     jdbcType=VARCHAR  },
+             #{attachment.newName,     jdbcType=VARCHAR  },
+             #{attachment.suffix,      jdbcType=VARCHAR  },
+             #{attachment.type,        jdbcType=VARCHAR  },
 
-             #{attachment.path,               jdbcType=VARCHAR  },
-             #{attachment.fileSize,           jdbcType=NUMERIC  },
-             #{post.user.id,                  jdbcType=VARCHAR  },
-             #{post.user.name,                jdbcType=VARCHAR  },
-             #{post.id,                       jdbcType=VARCHAR  },
+             #{attachment.path,        jdbcType=VARCHAR  },
+             #{attachment.fileSize,    jdbcType=NUMERIC  },
+             #{user.id,                jdbcType=VARCHAR  },
+             #{user.name,              jdbcType=VARCHAR  },
+             #{attachment.createTime,  jdbcType=TIMESTAMP},
 
-             #{post.name,                     jdbcType=VARCHAR  },
-             #{post.parent.id,                jdbcType=VARCHAR  },
-             #{post.parent.name,              jdbcType=VARCHAR  },
-             #{post.parent.parent.id,         jdbcType=VARCHAR  },
-             #{post.parent.parent.name,       jdbcType=VARCHAR  },
-
-             #{attachment.createTime,         jdbcType=TIMESTAMP},
-             #{attachment.updateTime,         jdbcType=TIMESTAMP}
+             #{attachment.updateTime,  jdbcType=TIMESTAMP}
         )
     </insert>
 
@@ -97,15 +85,8 @@
                path        = #{attachment.path,       jdbcType=VARCHAR  },
 
                file_size   = #{attachment.fileSize,   jdbcType=NUMERIC  },
-               user_id     = #{post.user.id,          jdbcType=VARCHAR  },
-               user_name   = #{post.user.name,        jdbcType=VARCHAR  },
-               post_id     = #{post.id,               jdbcType=VARCHAR  },
-               post_name   = #{post.name,             jdbcType=VARCHAR  },
-
-               dept_id     = #{post.parent.id,        jdbcType=VARCHAR  },
-               dept_name   = #{post.parent.name,      jdbcType=VARCHAR  },
-               unit_id     = #{post.unit.id,          jdbcType=VARCHAR  },
-               unit_name   = #{post.unit.name,        jdbcType=VARCHAR  },
+               user_id     = #{user.id,               jdbcType=VARCHAR  },
+               user_name   = #{user.name,             jdbcType=VARCHAR  },
                update_time = #{attachment.updateTime, jdbcType=TIMESTAMP}
          where id = #{attachment.id}
     </update>
@@ -113,17 +94,10 @@
     <!-- 更新附件新名称 -->
     <update id="updateNewName">
         update plat_attachment
-           set new_name    = #{newName,          jdbcType=VARCHAR  },
-               user_id     = #{post.user.id,     jdbcType=VARCHAR  },
-               user_name   = #{post.user.name,   jdbcType=VARCHAR  },
-               post_id     = #{post.id,          jdbcType=VARCHAR  },
-               post_name   = #{post.name,        jdbcType=VARCHAR  },
-
-               dept_id     = #{post.parent.id,   jdbcType=VARCHAR  },
-               dept_name   = #{post.parent.name, jdbcType=VARCHAR  },
-               unit_id     = #{post.unit.id,     jdbcType=VARCHAR  },
-               unit_name   = #{post.unit.name,   jdbcType=VARCHAR  },
-               update_time = #{updateTime,       jdbcType=TIMESTAMP}
+           set new_name    = #{newName,     jdbcType=VARCHAR  },
+               user_id     = #{user.id,     jdbcType=VARCHAR  },
+               user_name   = #{user.name,   jdbcType=VARCHAR  },
+               update_time = #{updateTime,  jdbcType=TIMESTAMP}
          where id = #{id}
     </update>
 

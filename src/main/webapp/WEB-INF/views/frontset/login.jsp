@@ -2,7 +2,6 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://v3.bootcss.com/examples/navbar-fixed-top/ -->
 <html lang="zh-CN">
 <head>
     <%@ include file="/common/meta.jsp"%>

@@ -1,15 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wupb
-  Date: 2016/6/13
-  Time: 9:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://v3.bootcss.com/log/navbar-fixed-top/ -->
 <html lang="zh-CN">
 <head>
     <%@ include file="/common/meta.jsp"%>
@@ -81,7 +73,6 @@
                                 <th>登陆人IP</th>
                                 <th>模块</th>
                                 <th>操作业务实体</th>
-                                <th>操作人岗位</th>
                                 <th>客户端</th>
                             </tr>
                             </thead>
@@ -136,8 +127,8 @@
                         data-dismiss="modal">取消
                 </button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -106,7 +106,7 @@
     </delete>
 
     <delete id="deleteByParent" >
-        delete from <include refid="table-name"/>
+        delete from plat_function
         <where>
             id in
             <foreach collection="list" item="itme" open="(" separator="," close=")">

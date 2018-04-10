@@ -125,7 +125,6 @@ function searchData(url,data){
                         '<td>'+ result[i].ip + '</td>'+
                         '<td>'+ result[i].module.name + '</td>'+
                         '<td>'+ result[i].obj.name + '</td>'+
-                        '<td>'+ result[i].post.name + '</td>'+
                         '<td>'+ client + '</td>' +
                         '</tr>';
                 }
@@ -178,7 +177,6 @@ function showDetail(id) {
     $("input[name=ip]").val(data.ip);
     $("input[name=module]").val(data.module);
     $("input[name=obj]").val(data.obj);
-    $("input[name=post]").val(data.post);
     $("input[name=client]").val(data.client);
     $("#myModal").modal("show");
 }
@@ -244,7 +242,6 @@ function save() {
     var ip = $("input[name=ip]").val();
     var module = $("input[name=module]").val();
     var obj = $("input[name=obj]").val();
-    var post = $("input[name=post]").val();
     var client = $("input[name=client]").val();
 
     var objectEq = {
@@ -254,7 +251,6 @@ function save() {
         ip:ip,
         module:module,
         obj:obj,
-        post:post,
         client:client
     } ;
 
@@ -298,7 +294,6 @@ function addFn(){
     $("input[name=ip]").val("");
     $("input[name=module]").val("");
     $("input[name=obj]").val("");
-    $("input[name=post]").val("");
     $("input[name=client]").val("");
 
     $("#myModal").modal("show");

@@ -3,6 +3,7 @@ package com.vansec.user.domain;
 import com.vansec.authority.domain.Role;
 import com.vansec.comm.domain.EntityImpl;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,6 +33,10 @@ public class User extends EntityImpl {
     private int rewardMoney; // 奖励金额
 
     private int rewardPoint; // 奖励积分
+
+    private int isFreeze; // 账号冻结 0：正常 1：冻结 2：账号异常
+
+    private Date freezeDate; // 冻结时间
 
     private Role role; // 用户所属权限角色
 
@@ -139,5 +144,21 @@ public class User extends EntityImpl {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public int getIsFreeze() {
+        return isFreeze;
+    }
+
+    public void setIsFreeze(int isFreeze) {
+        this.isFreeze = isFreeze;
+    }
+
+    public Date getFreezeDate() {
+        return freezeDate;
+    }
+
+    public void setFreezeDate(Date freezeDate) {
+        this.freezeDate = freezeDate;
     }
 }

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <script>
-        var userId = '${POST_CONTEXT.user.id}' ;
+        var userId = '${USER_CONTEXT.id}' ;
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="pragma" content="no-cache" />
@@ -54,11 +54,6 @@
                 }
             });
         });
-
-
-
-
-
 
         function closeTads(option){
             $('#tabs').tabs('close',option);
@@ -150,7 +145,7 @@
             <a class="fs_userp_register">&nbsp;</a>
         </li>
         <li class="fs_userp_item fs_userp_userqr">
-            <a class="fs_userp_username">用户名：${POST_CONTEXT.user.name}&nbsp;</a>
+            <a class="fs_userp_username">用户名：${USER_CONTEXT.name}&nbsp;</a>
         </li>
         <li class="fs_userp_item fs_userp_userqr">
             <a onclick="openChangePassword();">&nbsp;&nbsp;修改密码</a>

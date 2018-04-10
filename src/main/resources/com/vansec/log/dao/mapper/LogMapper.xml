@@ -17,22 +17,21 @@
 
         <result column="obj_type_id"     property="obj.type.id"/> <!--关联对象类型ID-->
         <result column="obj_type_name"   property="obj.type.name"/> <!--关联对象类型名称-->
-        <result column="latitude"        property="gps.latitude"/> <!--纬度-->
-        <result column="longitude"       property="gps.longitude"/> <!--经度-->
-        <result column="create_time"     property="createTime"/> <!--创建时间-->
-
         <result column="user_id"         property="user.id"/> <!--用户ID-->
         <result column="user_name"       property="user.name"/> <!--用户名称-->
+        <result column="latitude"        property="gps.latitude"/> <!--纬度-->
+
+        <result column="longitude"       property="gps.longitude"/> <!--经度-->
+        <result column="create_time"     property="createTime"/> <!--创建时间-->
     </resultMap>
 
     <sql id="table-name">plat_log</sql>
 
     <sql id="sqlPart">
-        id,             type,            description,    ip,             client_type,
-        client_version, module_id,       module_name,     obj_id,          obj_name,
-        obj_type_id,    obj_type_name,   user_id,         user_name,       post_id,
-        post_name,      department_id,   department_name, org_id,        org_name,
-        latitude,       longitude,       create_time
+        id,              type,            description,      ip,         client_type,
+        client_version,  module_id,       module_name,      obj_id,     obj_name,
+        obj_type_id,     obj_type_name,   user_id,          user_name,  latitude,
+        longitude,       create_time
     </sql>
 
     <sql id="if-part">

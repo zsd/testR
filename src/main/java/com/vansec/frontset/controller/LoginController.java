@@ -77,10 +77,7 @@ public class LoginController {
 
         Map<String, String >  map = new HashMap<>() ;
 
-        map.put("资产管理", "fs_csview_naviimgs1") ;
-        map.put("机构管理", "fs_csview_naviimgs3") ;
-        map.put("工作日志", "fs_csview_naviimgs7") ;
-        map.put("报表统计", "fs_csview_naviimgs9") ;
+        map.put("用户管理", "fs_csview_naviimgs3") ;
         map.put("系统管理", "fs_csview_naviimgs10") ;
 
 
