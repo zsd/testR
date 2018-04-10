@@ -12,7 +12,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" style="padding-top: 60px;padding-bottom: 30px;">
-            <div class="center-block" style="width: 235px;">
+            <div class="center-block" style="width: 430px;">
                 <img src="${ctx}/skin/default/img/logo.png"/>
             </div>
         </div>
