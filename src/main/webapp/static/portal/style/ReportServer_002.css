@@ -38,8 +38,7 @@ div#fs_bg {
     left: 45px;
     height: 80px;
     width: 500px;
-    background/*灞忚斀IE6*/ : url("images/logo.png") no-repeat;
-  //  //background:none\9;
+    background : url("images/logo.png") no-repeat;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="images/logo.png");
 }
 
