@@ -47,8 +47,7 @@ div#fs_bg {
     left: 45px;
     height: 30px;
     width: 175px;
-    background/*灞忚斀IE6*/ : url("platform_logo.png") no-repeat;
-  //  //background:none\9;
+    background: url("platform_logo.png") no-repeat;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="platform_logo.png");
 }
 

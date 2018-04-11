@@ -168,10 +168,10 @@
 .layout-split-proxy-h { width: 5px; cursor: e-resize;}
 .layout-split-proxy-v { height: 5px; cursor: n-resize;}
 .layout-mask { position: absolute; background: #fafafa; filter: alpha(opacity=10); opacity: 0.10; z-index: 4;}
-.layout-button-up { background: url('images/layout_arrows.png') no-repeat -16px -16px;}
-.layout-button-down { background: url('images/layout_arrows.png') no-repeat -16px 0;}
-.layout-button-left { background: url('images/layout_arrows.png') no-repeat 0 0;}
-.layout-button-right { background: url('images/layout_arrows.png') no-repeat 0 -16px;}
+/*.layout-button-up { background: url('images/layout_arrows.png') no-repeat -16px -16px;}*/
+/*.layout-button-down { background: url('images/layout_arrows.png') no-repeat -16px 0;}*/
+/*.layout-button-left { background: url('images/layout_arrows.png') no-repeat 0 0;}*/
+/*.layout-button-right { background: url('images/layout_arrows.png') no-repeat 0 -16px;}*/
 .layout-split-proxy-h, .layout-split-proxy-v { background-color: #aac5e7;}
 /*.layout-split-north { border-bottom: 5px solid #E6EEF8;}
 .layout-split-south { border-top: 5px solid #E6EEF8;}

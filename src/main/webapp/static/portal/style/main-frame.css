@@ -18,7 +18,7 @@ a:active { text-decoration: none; color:#333; }
 /*-------------------------- Frame Layout Style ----------------------------
 */
 /* tophead ---------------*/
-.mymask{background: url(../imgs/loading.gif) no-repeat scroll 10px } 
+/*.mymask{background: url(../imgs/loading.gif) no-repeat scroll 10px }*/
 .tophead{background: url(../imgs/index_tophead_03.png) left top repeat-x;}
 .tophead_wrap { margin:0 auto; padding:0; height:94px;}
   .tophead_top { margin:0 auto; padding:0; height:54px;background: url(../imgs/index_tophead_01.jpg) left top no-repeat;}
@@ -26,8 +26,8 @@ a:active { text-decoration: none; color:#333; }
   	.tophead_top_right { float:right; padding-right:35px; width:500px; height:54px; line-height:35px; color:#FFF; font-size:14px; text-align:right; background: url(../imgs/index_tophead_012r.jpg) right top no-repeat;}
 	.tophead_top_right a { margin:0 15px; color:#FFF;}
 	.tophead_top_right a:hover { margin:0 15px; text-decoration: none; color:#FF0;}
-  .tophead_bottom_all{background: url(../imgs/index_tophead_033.png) left top repeat-x;}
-  .tophead_bottom{background: url(../imgs/index_tophead_04.png) right top no-repeat;}
+  /*.tophead_bottom_all{background: url(../imgs/index_tophead_033.png) left top repeat-x;}*/
+  /*.tophead_bottom{background: url(../imgs/index_tophead_04.png) right top no-repeat;}*/
   .tophead_nav { margin:0 auto; padding-left:20px; height:40px; line-height:40px; background: url(../imgs/index_tophead_02.jpg) top left no-repeat;}
 	.tophead_nav ul{margin:0; padding:0; width:800px;}
 	.tophead_nav ul li { margin:0; float:left; width:100px; height:40px;display:block;cursor:pointer;line-height:40px; color:#FFF; font-size:14px; font-weight:bold;text-align:center;}

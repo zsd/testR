@@ -14,21 +14,15 @@
     <link rel="icon" href="static/portal/images/favicon.ico">
     <title>试运行</title>
 
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/main-frame.css'/>" />
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/frame.css'/>" />
-    <script type="text/javascript"
-            src="<c:url value='/static/portal/js/navigation2.js'/>"></script>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/main-frame.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/frame.css'/>" />
+    <script type="text/javascript" src="<c:url value='/static/portal/js/navigation2.js'/>"></script>
 
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/ReportServer.css'/>" />
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/ReportServer_002.css'/>" />
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/ReportServer_003.css'/>" />
-    <link rel="stylesheet" type="text/css"
-          href="<c:url value='/static/portal/style/ReportServer_004.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/ReportServer.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/ReportServer_002.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/ReportServer_003.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/portal/style/ReportServer_004.css'/>" />
+
     <script type="text/javascript">
         function divOver(o){
             $(o).addClass("fs_navigation_item_over");
@@ -77,7 +71,6 @@
             }
 
         }
-
 
         function show(){
             $("#loading").fadeOut("normal", function(){
@@ -220,17 +213,6 @@
 </html>
 <script type="text/javascript">
     var menus=$.parseJSON('${menus}');
-    /*var menus={1:[ {id:2,name:"设备巡检记录",src:'/todo'}],
-        1:[{id:1,name:"工作日志",src:'/todo'}],
-        2:[{id:1,name:"单位管理",src:'/org/gotoPage'}, {id:2,name:"部门管理",src:'/department/gotoPage'},
-            {id:3,name:"岗位管理",src:'/post/gotoPage'}, {id:4,name:"用户管理",src:'/user/gotoPage'}],
-        3:[{id:1,name:"报表统计",src:'/todo'}],
-        4:[{id:2,name:"菜单管理",src:'/function/gotoPage'},
-            {id:3,name:"角色管理",src:'/role/gotoPage'}, {id:4,name:"角色分配",src:'/todo'},{id:5,name:"字典管理",src:'/dic/list'},{id:6,name:"系统日志",src:'/log/list'}]
-    };*/
-    /* function changePosition(id) {
-     location.href="?currentPositionId="+id;
-     }*/
 
     $(".addDiv").find("img").attr("src",ctx+'/static/portal/imgs/s.gif');
     $(".addDiv:eq("+($(".addDiv").length-1)+")").find(".fs_navigation_item").addClass('fs_navigation_item_click') ;
