@@ -2,88 +2,80 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.vansec.user.dao.mapper.UserMapper">
+<mapper namespace="bussiness.work.dao.mapper.WorkMapper">
 
-    <resultMap id="userMap" type="com.vansec.user.domain.User">
-        <result column="id"            property="id" /> <!-- 用户ID -->
-        <result column="login_name"    property="loginName" /> <!-- 登录名称 -->
-        <result column="password"      property="password" /> <!-- 密码 -->
-        <result column="name"          property="name" /> <!-- 用户名称 -->
-        <result column="phone"         property="phone" /> <!-- 电话号码 -->
+    <resultMap id="workMap" type="bussiness.work.domain.Work">
+        <result column="id"             property="id" /> <!-- 用户ID -->
+        <result column="name"           property="name" /> <!-- 作品标题 -->
+        <result column="content"  property="content"  typeHandler="com.vansec.comm.ConvertBlobTypeHandler"/> <!-- 内容 -->
+        <result column="url"            property="url" /> <!-- 作品链接 -->
+        <result column="type"           property="type" /> <!-- 作品类型 -->
 
-        <result column="email"         property="email" /> <!-- 邮箱 -->
-        <result column="photo"         property="photo" /> <!-- 头像图片地址 -->
-        <result column="wechat_id"     property="wechatId" /> <!-- 微信Id -->
-        <result column="wechat_name"   property="wechatName" /> <!-- 微信用户名 -->
-        <result column="weibo_id"      property="weiboId" /> <!-- 微博Id -->
+        <result column="reward_money"   property="rewardMoney" /> <!-- 奖励金额 -->
+        <result column="reward_points"  property="rewardPoints" /> <!-- 奖励积分 -->
+        <result column="set_count"      property="setCount" /> <!-- 参与人数 -->
+        <result column="score"          property="score" /> <!-- 得分 -->
+        <result column="user_id"        property="user.id" /> <!-- 用户Id -->
 
-        <result column="weibo_name"    property="weiboName" /> <!-- 微博用户名 -->
-        <result column="reward_money"  property="rewardMoney" /> <!-- 奖励金额 -->
-        <result column="reward_point"  property="rewardPoint" /> <!-- 奖励积分 -->
-        <result column="create_time"   property="createTime" /> <!-- 创建时间 -->
-        <result column="update_time"   property="updateTime" /> <!-- 更新时间 -->
+        <result column="user_name"      property="user.name" /> <!-- 用户名 -->
+        <result column="create_time"    property="createTime" /> <!-- 创建时间 -->
+        <result column="update_time"    property="updateTime" /> <!-- 更新时间 -->
 
     </resultMap>
 
-    <sql id="table-name">plat_user</sql>
+    <sql id="table-name">tr_work</sql>
 
     <!-- sql片段 -->
     <sql id="sqlPart">
-        id,          login_name,    password,      name,         phone,
-        email,       photo,         wechat_id,     wechat_name,  weibo_id,
-        weibo_name,  reward_money,  reward_point,  create_time,  update_time
+        id,            name,           content,    url,    type,
+        reward_money,  reward_points,  set_count,  score,  user_id,
+        user_name,     create_time,    update_time
     </sql>
 
-    <!-- 根据用户ID获取用户 -->
-    <select id="getById" parameterType="String" resultMap="userMap">
+    <!-- 根据ID获取 -->
+    <select id="getById" parameterType="String" resultMap="workMap">
         select
         <include refid="sqlPart"/>
         from <include refid="table-name"/>
         where id = #{id}
     </select>
 
-    <!-- 根据用户ID获取用户 -->
-    <select id="getByLoginName" parameterType="String" resultMap="userMap">
-        select
-        <include refid="sqlPart"/>
-        from <include refid="table-name"/>
-        where login_name = #{loginName}
-    </select>
-
-    <!--保存用户-->
-    <insert id="save" parameterType="com.vansec.user.domain.User">
+    <!--保存-->
+    <insert id="save" parameterType="bussiness.work.domain.Work">
         insert into <include refid="table-name"/>
         (<include refid="sqlPart"/>)
         values (
         #{id},
-        #{loginName},
-        #{password},
         #{name},
-        #{phone},
+        #{content},
+        #{url},
+        #{type},
 
-        #{email},
-        #{photo},
-        #{wechatId},
-        #{wechatName},
-        #{weiboId},
-
-        #{weiboName},
         #{rewardMoney},
-        #{rewardPoint},
+        #{rewardPoints},
+        #{setCount},
+        #{score},
+        #{user.id},
+
+        #{user.name},
         now(),
         now()
         )
     </insert>
 
-    <!--更新用户-->
-    <update id="update" parameterType="com.vansec.user.domain.User">
+    <!--更新-->
+    <update id="update" parameterType="bussiness.work.domain.Work">
         update <include refid="table-name"/>
         set
         name = #{name},
-        login_name = #{loginName},
-        password = #{password},
-        phone = #{phone},
-        email = #{email}
+        content = #{content},
+        url = #{url},
+        type = #{type},
+        reward_money = #{rewardMoney},
+
+        reward_points = #{rewardPoints},
+        set_count = #{setCount},
+        update_time = now()
         where id = #{id}
     </update>
 
@@ -104,7 +96,7 @@
     </select>
 
     <!-- 查询, 1.输入用map传入多个参数 2.<where>语句, 添加where和and关键字 3.输出直接映射对象 -->
-    <select id="search" resultMap="userMap">
+    <select id="search" resultMap="workMap">
         select <include refid="sqlPart"/>
         from <include refid="table-name"/>
         <where>
@@ -114,20 +106,6 @@
         </where>
         ORDER BY update_time DESC
         LIMIT #{skip,     jdbcType=NUMERIC  }, #{limit,     jdbcType=NUMERIC  }
-    </select>
-
-    <!-- 验证用户名 -->
-    <select id="checkLoginName" resultType="long">
-        select count(id)
-        from <include refid="table-name"/>
-        <where>
-            <if test="id != null">
-                and id != #{id}
-            </if>
-            <if test="loginName != null">
-                and login_name = #{loginName}
-            </if>
-        </where>
     </select>
 
 </mapper>
