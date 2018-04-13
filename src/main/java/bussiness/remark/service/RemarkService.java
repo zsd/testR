@@ -1,4 +1,4 @@
-package bussiness.remark.dao;
+package bussiness.remark.service;
 
 import bussiness.remark.domain.Remark;
 import com.vansec.comm.orm.Page;
@@ -6,13 +6,13 @@ import com.vansec.comm.orm.Page;
 import java.util.Map;
 
 /**
- * 评论数据访问类.
+ * 评论服务接口.
  * @author zhousd
  */
-public interface RemarkDao {
+public interface RemarkService {
 
     /**
-     * 根据ID获取.
+     * 根据id获取.
      */
     Remark getById(String id);
 
@@ -22,17 +22,22 @@ public interface RemarkDao {
     void save(Remark remark);
 
     /**
-     * 更新用户.
+     * 更新.
      */
     void update(Remark remark);
 
     /**
-     * 删除用户.
+     * 删除.
      */
     void delete(String id);
 
     /**
-     * 分页查询.
+     * 批量删除.
+     */
+    void deleteIdStr(String idStr);
+
+    /**
+     * 分页列表.
      */
     Page<Remark> search(Page<Remark> page, Map<String, Object> param);
 }

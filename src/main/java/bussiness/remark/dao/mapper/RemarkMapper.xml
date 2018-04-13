@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bussiness.remark.dao.mapper.RemarkMapper">
+
+    <resultMap id="remarkMap" type="bussiness.remark.domain.Remark">
+        <result column="id"             property="id" /> <!-- 用户ID -->
+        <result column="content"  property="content"  typeHandler="com.vansec.comm.ConvertBlobTypeHandler"/> <!-- 内容 -->
+        <result column="work_id"        property="work.id" /> <!-- 关联作品ID -->
+        <result column="like_count"     property="likeCount" /> <!-- 点赞数 -->
+        <result column="user_id"        property="user.id" /> <!-- 用户Id -->
+
+        <result column="user_name"      property="user.name" /> <!-- 用户名 -->
+        <result column="create_time"    property="createTime" /> <!-- 创建时间 -->
+        <result column="update_time"    property="updateTime" /> <!-- 更新时间 -->
+    </resultMap>
+
+    <sql id="table-name">tr_remark</sql>
+
+    <!-- sql片段 -->
+    <sql id="sqlPart">
+        id,         content,      work_id,   like_count,  user_id,
+        user_name,  create_time,  update_time
+    </sql>
+
+    <!-- 根据ID获取 -->
+    <select id="getById" parameterType="String" resultMap="remarkMap">
+        select
+        <include refid="sqlPart"/>
+        from <include refid="table-name"/>
+        where id = #{id}
+    </select>
+
+    <!--保存-->
+    <insert id="save" parameterType="bussiness.remark.domain.Remark">
+        insert into <include refid="table-name"/>
+        (<include refid="sqlPart"/>)
+        values (
+        #{id},
+        #{content},
+        #{work.id},
+        #{likeCount},
+        #{user.id},
+
+        #{user.name},
+        now(),
+        now()
+        )
+    </insert>
+
+    <!--更新-->
+    <update id="update" parameterType="bussiness.remark.domain.Remark">
+        update <include refid="table-name"/>
+        set
+        content = #{content},
+        update_time = now()
+        where id = #{id}
+    </update>
+
+    <!--删除用户-->
+    <delete id="delete" parameterType="string">
+        delete from <include refid="table-name"/> where id = #{id}
+    </delete>
+
+    <!-- 查询, 查询记录数 -->
+    <select id="count" resultType="long">
+        select count(id)
+        from <include refid="table-name"/>
+        <where>
+            <if test="name != null">
+                and name LIKE '%${name}%'
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询, 1.输入用map传入多个参数 2.<where>语句, 添加where和and关键字 3.输出直接映射对象 -->
+    <select id="search" resultMap="remarkMap">
+        select <include refid="sqlPart"/>
+        from <include refid="table-name"/>
+        <where>
+            <if test="name != null">
+                and name LIKE '%${name}%'
+            </if>
+        </where>
+        ORDER BY update_time DESC
+        LIMIT #{skip,     jdbcType=NUMERIC  }, #{limit,     jdbcType=NUMERIC  }
+    </select>
+
+</mapper>
