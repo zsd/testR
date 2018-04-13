@@ -51,7 +51,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         //添加系统日记
         logService.add(LogFactory.insert(Log.TYPE_GETBYID,"访问用户管理页面","机构管理", SecurityContextHolder.getUser()));
-        mv.setViewName("org/user/list");
+        mv.setViewName("user/list");
         return mv;
     }
     /**
@@ -84,7 +84,7 @@ public class UserController {
     @RequestMapping(value = "gotovansecUserPage", method = RequestMethod.GET)
     public ModelAndView gotovansecUserPage() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("org/user/vansecUser");
+        mv.setViewName("user/vansecUser");
         return mv;
     }
     /**
