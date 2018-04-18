@@ -5,7 +5,7 @@
 <mapper namespace="bussiness.work.dao.mapper.WorkMapper">
 
     <resultMap id="workMap" type="bussiness.work.domain.Work">
-        <result column="id"             property="id" /> <!-- 用户ID -->
+        <result column="id"             property="id" /> <!-- 作品ID -->
         <result column="name"           property="name" /> <!-- 作品标题 -->
         <result column="content"  property="content"  typeHandler="com.vansec.comm.ConvertBlobTypeHandler"/> <!-- 内容 -->
         <result column="url"            property="url" /> <!-- 作品链接 -->
