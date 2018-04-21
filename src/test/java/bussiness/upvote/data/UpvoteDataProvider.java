@@ -1,8 +1,8 @@
 package bussiness.upvote.data;
 
+import bussiness.remark.data.RemarkDataProvider;
 import bussiness.upvote.domain.Upvote;
-import bussiness.work.data.WorkDataProvider;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.data.UserDataProvider;
 
 /**
@@ -17,8 +17,8 @@ public class UpvoteDataProvider {
      */
     public static Upvote getUpvote() {
         Upvote upvote = new Upvote();
-        upvote.setId(DataUtils.ID_1);
-        upvote.setWork(WorkDataProvider.getWork());
+        upvote.setId(DataUtilsTest.ID_1);
+        upvote.setRemark(RemarkDataProvider.getRemark());
         upvote.setUser(UserDataProvider.getUser());
         return upvote;
     }

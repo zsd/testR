@@ -101,6 +101,7 @@ function searchData(url,data){
                 for (var i=0;i<result.length;i++) {
                     changeStr='';
                     resetPassword='';
+
                     if(typeof(changeFlage)!='undefined'&& changeFlage){
                         changeStr =  '<td><button type="button" onclick="showDetail(\''+result[i].id+'\')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;编辑</button>';
                     }

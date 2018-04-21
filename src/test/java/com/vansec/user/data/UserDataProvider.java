@@ -1,6 +1,6 @@
 package com.vansec.user.data;
 
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.domain.User;
 
 /**
@@ -15,7 +15,7 @@ public class UserDataProvider {
      */
     public static User getUser() {
         User user = new User();
-        user.setId(DataUtils.ID_1);
+        user.setId(DataUtilsTest.ID_1);
         user.setName("测试用户_001");
         user.setLoginName("test1");
         user.setPassword("123");

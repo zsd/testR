@@ -1,10 +1,9 @@
 package com.vansec.user.service;
 
 import com.vansec.AbstractTest;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.data.UserDataProvider;
 import com.vansec.user.domain.User;
-import com.vansec.user.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
@@ -32,7 +31,7 @@ public class UserServiceTest extends AbstractTest {
      */
     @Test
     public void getByIdTest(){
-        User user = userService.getById(DataUtils.ID_1);
+        User user = userService.getById(DataUtilsTest.ID_1);
         Assert.notNull(user);
     }
 
@@ -41,7 +40,7 @@ public class UserServiceTest extends AbstractTest {
      */
     @Test
     public void updateTest(){
-        User user = userService.getById(DataUtils.ID_1);
+        User user = userService.getById(DataUtilsTest.ID_1);
         user.setPhone("1232132");
         userService.update(user);
     }
@@ -50,7 +49,7 @@ public class UserServiceTest extends AbstractTest {
      */
     @Test
     public void deleteTest(){
-        userService.delete(DataUtils.ID_1);
+        userService.delete(DataUtilsTest.ID_1);
     }
 
 

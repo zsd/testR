@@ -1,7 +1,7 @@
 package bussiness.work.data;
 
 import bussiness.work.domain.Work;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.data.UserDataProvider;
 
 /**
@@ -16,7 +16,7 @@ public class WorkDataProvider {
      */
     public static Work getWork() {
         Work work = new Work();
-        work.setId(DataUtils.ID_1);
+        work.setId(DataUtilsTest.ID_1);
         work.setName("作品标题");
         work.setContent("作品内容");
         work.setUrl("www.baidu.com");

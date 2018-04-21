@@ -78,7 +78,7 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    信息维护
+                    菜单信息
                 </h4>
             </div>
             <div class="modal-body">
@@ -86,87 +86,57 @@
                     <div class="col-md-12"  style="padding-left: 0px;">
                         <form id="saveForm" name="saveForm" method="post">
                             <input type="hidden" class="form-control" name="id" >
-                            <div class="col-md-12" style="padding-left: 0px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red"></font>父节点：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="parentName"  readonly>
-                                    <input type="hidden" class="form-control" name="parentId" >
-                                 </div>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red">*</font>名称：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="name" >
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red">*</font>编号：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="code" >
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red">*</font>类型：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" name="type" id="type">
-                                        <option value="1">菜单</option>
-                                        <option value="2">按钮</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label>路径：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="src" >
-                                </div>
+
+                            <div class="col-md-12">
+                                <label><font color="red"></font>父节点：</label>
+                                <input type="text" class="form-control" name="parentName"  readonly>
+                                <input type="hidden" class="form-control" name="parentId" >
                             </div>
 
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red">*</font>排序：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="number" class="form-control" name="orderNum" >
-                                </div>
+                            <div class="col-md-12">
+                                <label><font color="red">*</font>名称：</label>
+                                <input type="text" class="form-control" name="name" >
                             </div>
 
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label>描述：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="description" >
-                                </div>
+                            <div class="col-md-12">
+                                <label><font color="red">*</font>编号：</label>
+                                <input type="text" class="form-control" name="code" >
                             </div>
 
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label><font color="red">*</font>是否显示：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <select class="form-control" name="isShow" id="isShow">
-                                        <option value="1">是</option>
-                                        <option value="0">否</option>
-                                    </select>
-                                </div>
+                            <div class="col-md-12">
+                                <label><font color="red">*</font>类型：</label>
+                                <select class="form-control" name="type" id="type">
+                                    <option value="1">菜单</option>
+                                    <option value="2">按钮</option>
+                                </select>
                             </div>
-                            <div class="col-md-12" style="padding-left: 0px;margin-top: 6px;">
-                                <div class="col-md-2" style="text-align: right; margin-top: 5px; padding: 0px;">
-                                    <label>图片路径：</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="icon" >
-                                </div>
+
+                            <div class="col-md-12">
+                                <label>路径：</label>
+                                <input type="text" class="form-control" name="src" >
+                            </div>
+
+                            <div class="col-md-12">
+                                <label><font color="red">*</font>排序：</label>
+                                <input type="number" class="form-control" name="orderNum" >
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>描述：</label>
+                                <input type="text" class="form-control" name="description" >
+                            </div>
+
+                            <div class="col-md-12">
+                                <label><font color="red">*</font>是否显示：</label>
+                                <select class="form-control" name="isShow" id="isShow">
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>图片路径：</label>
+                                <input type="text" class="form-control" name="icon">
                             </div>
                         </form>
                     </div>

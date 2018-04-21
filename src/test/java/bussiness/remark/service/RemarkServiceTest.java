@@ -3,7 +3,7 @@ package bussiness.remark.service;
 import bussiness.remark.data.RemarkDataProvider;
 import bussiness.remark.domain.Remark;
 import com.vansec.AbstractTest;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class RemarkServiceTest extends AbstractTest {
      */
     @Test
     public void getByIdTest() {
-        Remark remark = remarkService.getById(DataUtils.ID_1);
+        Remark remark = remarkService.getById(DataUtilsTest.ID_1);
         Assert.assertNotNull(remark);
     }
 
@@ -39,7 +39,7 @@ public class RemarkServiceTest extends AbstractTest {
      */
     @Test
     public void updateTest() {
-        Remark remark = remarkService.getById(DataUtils.ID_1);
+        Remark remark = remarkService.getById(DataUtilsTest.ID_1);
         remark.setContent("测试修改标题");
         remarkService.update(remark);
     }
@@ -49,8 +49,8 @@ public class RemarkServiceTest extends AbstractTest {
      */
     @Test
     public void deleteTest() {
-        remarkService.delete(DataUtils.ID_1);
-        Remark work = remarkService.getById(DataUtils.ID_1);
+        remarkService.delete(DataUtilsTest.ID_1);
+        Remark work = remarkService.getById(DataUtilsTest.ID_1);
         Assert.assertNull(work);
     }
 }

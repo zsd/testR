@@ -6,7 +6,7 @@
 
     <resultMap id="remarkMap" type="bussiness.remark.domain.Remark">
         <result column="id"             property="id" /> <!-- 用户ID -->
-        <result column="content"  property="content"  typeHandler="com.vansec.comm.ConvertBlobTypeHandler"/> <!-- 内容 -->
+        <result column="content"  property="content"/> <!-- 内容 -->
         <result column="work_id"        property="work.id" /> <!-- 关联作品ID -->
         <result column="like_count"     property="likeCount" /> <!-- 点赞数 -->
         <result column="user_id"        property="user.id" /> <!-- 用户Id -->

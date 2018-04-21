@@ -61,8 +61,10 @@
 
     <!--插入字典-->
     <insert id="save" parameterType="com.vansec.function.domain.Function">
-        insert into <include refid="table-name"/> (
-        <include refid="sqlPart"/>
+        insert into plat_function (
+        id,           name,     code,       src,        type,
+        description,  is_show,  order_num,  parent_id,  icon,
+        create_time,  update_time
         )
         values
         (

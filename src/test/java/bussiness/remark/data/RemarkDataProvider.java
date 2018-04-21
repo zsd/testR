@@ -2,7 +2,7 @@ package bussiness.remark.data;
 
 import bussiness.remark.domain.Remark;
 import bussiness.work.data.WorkDataProvider;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.data.UserDataProvider;
 
 /**
@@ -17,7 +17,7 @@ public class RemarkDataProvider {
      */
     public static Remark getRemark() {
         Remark remark = new Remark();
-        remark.setId(DataUtils.ID_1);
+        remark.setId(DataUtilsTest.ID_1);
         remark.setContent("作品内容");
         remark.setWork(WorkDataProvider.getWork());
         remark.setLikeCount(10);

@@ -46,7 +46,7 @@ public class WorkController {
     /**
      * 查询列表.
      */
-    @RequestMapping(value = "gotoPage", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView gotoPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("work/list");

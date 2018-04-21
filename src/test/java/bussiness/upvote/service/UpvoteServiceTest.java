@@ -3,7 +3,7 @@ package bussiness.upvote.service;
 import bussiness.upvote.data.UpvoteDataProvider;
 import bussiness.upvote.domain.Upvote;
 import com.vansec.AbstractTest;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class UpvoteServiceTest extends AbstractTest {
      */
     @Test
     public void getByIdTest() {
-        Upvote upvote = upvoteService.getById(DataUtils.ID_1);
+        Upvote upvote = upvoteService.getById(DataUtilsTest.ID_1);
         Assert.assertNotNull(upvote);
     }
 
@@ -39,8 +39,8 @@ public class UpvoteServiceTest extends AbstractTest {
      */
     @Test
     public void deleteTest() {
-        upvoteService.delete(DataUtils.ID_1);
-        Upvote upvote = upvoteService.getById(DataUtils.ID_1);
+        upvoteService.delete(DataUtilsTest.ID_1);
+        Upvote upvote = upvoteService.getById(DataUtilsTest.ID_1);
         Assert.assertNull(upvote);
     }
 }

@@ -1,7 +1,7 @@
 package com.vansec.function.service;
 
 import com.vansec.AbstractTest;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.function.domain.Function;
 import com.vansec.function.domain.TreeNode;
 import org.junit.Assert;
@@ -55,7 +55,7 @@ public class FunctionServiceTest   extends AbstractTest {
 
     @Test
     public void getByPostId() {
-        List<Function> functionList = functionService.getByUserId(DataUtils.ID_1, "root");
+        List<Function> functionList = functionService.getByUserId(DataUtilsTest.ID_1, "root");
         Assert.assertNotNull(functionList);
     }
 }

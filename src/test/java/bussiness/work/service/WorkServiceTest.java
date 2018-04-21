@@ -3,7 +3,7 @@ package bussiness.work.service;
 import bussiness.work.data.WorkDataProvider;
 import bussiness.work.domain.Work;
 import com.vansec.AbstractTest;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class WorkServiceTest extends AbstractTest {
      */
     @Test
     public void getByIdTest() {
-        Work work = workService.getById(DataUtils.ID_1);
+        Work work = workService.getById(DataUtilsTest.ID_1);
         Assert.assertNotNull(work);
     }
 
@@ -39,7 +39,7 @@ public class WorkServiceTest extends AbstractTest {
      */
     @Test
     public void updateTest() {
-        Work work = workService.getById(DataUtils.ID_1);
+        Work work = workService.getById(DataUtilsTest.ID_1);
         work.setName("测试修改标题");
         workService.update(work);
     }
@@ -49,8 +49,8 @@ public class WorkServiceTest extends AbstractTest {
      */
     @Test
     public void deleteTest() {
-        workService.delete(DataUtils.ID_1);
-        Work work = workService.getById(DataUtils.ID_1);
+        workService.delete(DataUtilsTest.ID_1);
+        Work work = workService.getById(DataUtilsTest.ID_1);
         Assert.assertNull(work);
     }
 }

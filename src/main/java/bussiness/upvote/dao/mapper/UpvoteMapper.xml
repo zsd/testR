@@ -6,11 +6,9 @@
 
     <resultMap id="upvoteMap" type="bussiness.upvote.domain.Upvote">
         <result column="id"             property="id" /> <!-- 点赞ID -->
-        <result column="work_id"        property="work.id" /> <!-- 关联作品id -->
-        <result column="work_name"      property="work.name" /> <!-- 关联作品名称 -->
+        <result column="remark_id"      property="remark.id" /> <!-- 关联评论id -->
         <result column="user_id"        property="user.id" /> <!-- 用户Id -->
         <result column="user_name"      property="user.name" /> <!-- 用户名 -->
-
         <result column="create_time"    property="createTime" /> <!-- 创建时间 -->
     </resultMap>
 
@@ -18,8 +16,7 @@
 
     <!-- sql片段 -->
     <sql id="sqlPart">
-        id,          work_id,     work_name,  user_id,  user_name,
-        create_time
+        id,  remark_id,  user_id,  user_name,  create_time
     </sql>
 
     <!-- 根据ID获取 -->
@@ -36,11 +33,9 @@
         (<include refid="sqlPart"/>)
         values (
         #{id},
-        #{work.id},
-        #{work.name},
+        #{remark.id},
         #{user.id},
         #{user.name},
-
         now()
         )
     </insert>

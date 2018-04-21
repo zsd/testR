@@ -3,13 +3,12 @@ package com.vansec.authority.service;
 import com.vansec.AbstractTest;
 import com.vansec.authority.data.RoleDataProvider;
 import com.vansec.authority.domain.Role;
-import com.vansec.comm.DataUtils;
+import com.vansec.comm.DataUtilsTest;
 import com.vansec.user.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,7 +38,7 @@ public class RoleServiceTest extends AbstractTest {
         User user = new User();
         user.setId("1");
         Role role = new Role();
-        role.setId(DataUtils.ID_1);
+        role.setId(DataUtilsTest.ID_1);
         user.setRole(role);
         roleService.saveUserRole(user);
     }

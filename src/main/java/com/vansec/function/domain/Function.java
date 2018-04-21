@@ -8,18 +8,29 @@ import java.util.List;
  * Created by 黄辅湘 on 2016/6/22.
  */
 public class Function extends EntityImpl {
-    private String code;
-    private String src ;
-    private String type ;
-    private String description;
-    private String isShow ;
-    private int orderNum ;
-    private String parentId;
-    private String icon ;
-    private List<Function> children ;
+
+    private String code; // 编号
+
+    private String src; // 路径
+
+    private String type; // 类型
+
+    private String description; // 描述
+
+    private String isShow; // 是否显示
+
+    private int orderNum; // 排序
+
+    private String parentId; // 父节点ID
+
+    private String icon; // 图片
+
+    private List<Function> children; // 子节点集合
+
     public Function() {
         super();
     }
+
     public Function(String name, String src, String type,String description,String isShow,int orderNum,String parentId,String icon){
         this.setName(name);
         this.src = src ;
