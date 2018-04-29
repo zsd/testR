@@ -1,7 +1,7 @@
 var date = new Date();
 var month = (date.getMonth()+1);
 var nowDate = date.getFullYear()+(month<10?("-0"+month):("-"+month))+((date.getDate())<10?("-0"+(date.getDate())):("-"+(date.getDate())));
-var url = ctx+"/work/search";
+var url = ctx+"/user/search";
 $(function () {
 
     //默认
@@ -47,7 +47,7 @@ $(function () {
                 $.ajax( {
                     dataType: "json",
                     type: "get",
-                    url: ctx+"/work/delete?idStr=" + idStr,
+                    url: ctx+"/user/delete?idStr=" + idStr,
                     success:function(data){
                         if (data.code == "200") {
                             jAlert(data.msg, '提示');
@@ -76,7 +76,15 @@ $(function () {
         searchData(url,parameter);
     });
 });
+function dateDiff(sDate1, sDate2) {  //sDate1和sDate2是yyyy-MM-dd格式
 
+    var oDate1, oDate2, iDays;
+    oDate1 = new Date(sDate1);
+    oDate2 = new Date(sDate2);
+    iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24); //把相差的毫秒数转换为天数
+    return iDays;  //返回相差天数
+
+}
 //查询分页数据并显示到页面
 function searchData(url,data){
     $.ajax( {
@@ -89,22 +97,27 @@ function searchData(url,data){
             var table = '';
             try {
                 var changeStr;
+                var resetPassword;
                 for (var i=0;i<result.length;i++) {
                     changeStr='';
-                    changeStr =  '<td><button type="button" onclick="showDetail(\''+result[i].id+'\')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;编辑</button>';
-
+                    resetPassword='';
+                    if(typeof(changeFlage)!='undefined'&& changeFlage){
+                        changeStr =  '<td><button type="button" onclick="showDetail(\''+result[i].id+'\')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;编辑</button>';
+                    }
+                    if(typeof(resetPasswordFlage)!='undefined'&& resetPasswordFlage){
+                        resetPassword = '&nbsp;&nbsp;<button type="button" onclick="resetPassword(\''+result[i].id+'\',\''+result[i].name+'\')" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;重置密码</button>';
+                    }
                     table +=
                         '<tr>'+
                         '<td><input class="rowIdImput" type="checkbox" name="items" value="'+ result[i].id +'"></td>'+
                         '<td>'+ result[i].name + '</td>'+
-                        '<td>'+ result[i].type + '</td>'+
-                        '<td>' + '¥' + result[i].rewardMoney + '/' + result[i].rewardPoints + '</td>'+
-                        '<td>'+ result[i].setCount + '/' + result[i].actorCount + '</td>'+
-                        '<td>'+ result[i].score + '</td>'+
-                        '<td>'+ result[i].user.name + '</td>'+
+                        '<td>'+ result[i].phone + '</td>'+
+                        '<td>'+ birthdayDate(result[i].birthday) + '</td>'+
+                        '<td>'+ result[i].email + '</td>'+
                         '<td>'+ formatDate(result[i].createTime) + '</td>'+
                         '<td>'+ formatDate(result[i].updateTime) + '</td>';
-                    table += changeStr + '</td></tr>';
+                    table +=changeStr+resetPassword +
+                        '</td></tr>';
                 }
                 //添加列表数据
                 $(table).appendTo($("#listTab").find("tbody").empty());
@@ -149,11 +162,10 @@ function showDetail(id) {
     var data =  $('.rowIdImput[value='+id+']').data("datas") ;
     $("input[name=id]").val(data.id);
     $("input[name=name]").val(data.name);
-    $("input[name=url]").val(data.url);
-    $("#type").val(data.type);
-    $("input[name=rewardMoney]").val(data.rewardMoney);
-    $("input[name=rewardPoints]").val(data.rewardPoints);
-    $("input[name=setCount]").val(data.setCount);
+    $("input[name=loginName]").val(data.loginName);
+    $("input[name=phone]").val(data.phone);
+    $("input[name=birthday]").val(formatDate(data.birthday));
+    $("input[name=email]").val(data.email);
     $("#myModal").modal("show");
 }
 
@@ -225,29 +237,37 @@ function birthdayDate (strTime) {
 function save() {
     var id = $("input[name=id]").val();
     var name = $("input[name=name]").val();
-    var url = $("input[name=url]").val();
-    var type = $("#type").val();
-    var rewardMoney = $("input[name=rewardMoney]").val();
-    var rewardPoints = $("input[name=rewardPoints]").val();
-    var setCount = $("input[name=setCount]").val();
+    var loginName = $("input[name=loginName]").val();
+    var password = $("input[name=password]").val();
+    var phone = $("input[name=phone]").val();
+    var birthday = $("input[name=birthday]").val();
+    var email = $("input[name=email]").val();
 
     if (name == null || name == "") {
-        jAlert('请填写标题！', '提示');
+        jAlert('请填写名称！', '提示');
         return;
     }
-    if (url == null || url == "") {
-        jAlert('请输入链接！', '提示');
+    if (password == null || password == "") {
+        jAlert('请输入密码！', '提示');
         return;
+    }
+    //手机号格式验证
+    var MobilePattern = /^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$/;
+    if (phone !=null && phone !='') {
+        if (!MobilePattern.test(phone)) {
+            jAlert('手机格式不正确！', '提示');
+            return;
+        }
     }
     
     var objectEq = {
         id:id,
         name:name,
-        url:url,
-        type:type,
-        rewardMoney:rewardMoney,
-        rewardPoints:rewardPoints,
-        setCount:setCount
+        loginName:loginName,
+        password:password,
+        phone:phone,
+        birthday:birthday,
+        email:email
     } ;
 
     $("#saveYes").hide();
@@ -256,7 +276,7 @@ function save() {
     $.ajax( {
         dataType: "json",
         type: "post",
-        url: ctx+"/work/save",
+        url: ctx+"/user/save",
         data:json,
         success:function(data){
             if (data.code == "200") {
@@ -281,18 +301,36 @@ function save() {
 function addFn(){
     $("input[name=id]").val("");
     $("input[name=name]").val("");
-    $("input[name=url]").val("");
+    $("input[name=loginName]").val("");
 
-    $("input[name=type]").val("");
-    $("input[name=rewardMoney]").val("");
-    $("input[name=rewardPoints]").val("");
-    $("input[name=setCount]").val("");
+    $("input[name=phone]").val("");
+    $("input[name=birthday]").val("");
+    $("input[name=email]").val("");
     $("#myModal").modal("show");
 }
 
 //导出数据
 function exportXml(){
     jAlert('待开发！', '提示');
+}
+
+
+function resetPassword(id,userName){
+    var se=confirm("请确认是否重置<"+userName+">的密码!");
+    if (se==true) {
+        $.ajax( {
+            dataType: "json",
+            type: "post",
+            url: ctx+"/user/resetPassword?id=" + id,
+            success:function(data){
+                if (data.code == "200") {
+                    jAlert(data.msg, '提示');
+                } else {
+                    jAlert(data.msg, '提示');
+                }
+            }
+        }) ;
+    }
 }
 
 

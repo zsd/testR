@@ -24,6 +24,7 @@ public class WorkDataProvider {
         work.setRewardMoney(100);
         work.setRewardPoints(100);
         work.setSetCount(100);
+        work.setActorCount(20);
         work.setUser(UserDataProvider.getUser());
         return work;
     }

@@ -90,6 +90,7 @@ public class WorkController {
                 logService.add(LogFactory.insert(Log.TYPE_MOD, "修改作品", MODULENAME_WORK,
                         SecurityContextHolder.getUser())); //添加系统日记
             } else {
+                work.setUser(SecurityContextHolder.getUser());
                 workService.save(work);
                 logService.add(LogFactory.insert(Log.TYPE_ADD, "添加作品", MODULENAME_WORK,
                         SecurityContextHolder.getUser())); //添加系统日记

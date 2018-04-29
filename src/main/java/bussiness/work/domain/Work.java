@@ -21,6 +21,8 @@ public class Work extends EntityImpl {
 
     private int setCount; // 设定总人数
 
+    private int actorCount; // 评论总数
+
     private float score; // 作品得分
 
     private User user; // 发布人
@@ -87,5 +89,13 @@ public class Work extends EntityImpl {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getActorCount() {
+        return actorCount;
+    }
+
+    public void setActorCount(int actorCount) {
+        this.actorCount = actorCount;
     }
 }
